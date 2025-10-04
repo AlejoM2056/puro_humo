@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Humo - Reservar Mesa</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./reservation.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="domicilios.html">Pida Su Chicharrón</a>
+                <a class="nav-link" href="feedback.html">Déjenos Su Opinión, Mij@</a>
+                <a class="btn-reserve" href="./reservacion.html">¡Reserve, no sea pingo!</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <section class="reservas-section">
+        <div class="reservas-container">
+            <div class="section-header">
+                <h1 class="section-title">¡Reserve Su Mesa, Mij@!</h1>
+                <p class="section-subtitle">No se quede por fuera de esta berraquera. Reserve ya y asegure su puesto
+                    para disfrutar del mejor chicharrón de Santander</p>
+            </div>
+            <div class="info-banner">
+                <h3>Información Importante Mano</h3>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-icon">📅</div>
+                        <div class="info-text">
+                            <strong>Horario:</strong><br>
+                            Sábados y Domingos<br>
+                            11:30 AM - 4:00 PM
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <strong>Ubicación:</strong><br>
+                            Lagos / Floridablanca<br>
+                            Santander
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">⏰</div>
+                        <div class="info-text">
+                            <strong>Reserva con:</strong><br>
+                            Mínimo 2 horas<br>
+                            de anticipación
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">👥</div>
+                        <div class="info-text">
+                            <strong>Grupos:</strong><br>
+                            De 2 a 10 personas<br>
+                            por reserva
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="reserva-form" id="reservaForm">
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="nombre">Nombre Completo *</label>
+                        <input type="text" id="nombre" required placeholder="¿Cómo se llama, pues?">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="telefono">Teléfono / WhatsApp *</label>
+                        <input type="tel" id="telefono" required placeholder="320 123 4567">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" placeholder="suCorreo@ejemplo.com">
+                    </div>
+                    <div class="form-field">
+                        <label for="personas">Número de Personas *</label>
+                        <select id="personas" required>
+                            <option value="">Seleccione...</option>
+                            <option value="2">2 personas</option>
+                            <option value="3">3 personas</option>
+                            <option value="4">4 personas</option>
+                            <option value="5">5 personas</option>
+                            <option value="6">6 personas</option>
+                            <option value="7">7 personas</option>
+                            <option value="8">8 personas</option>
+                            <option value="9">9 personas</option>
+                            <option value="10">10 personas</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="fecha">Fecha de Reserva *</label>
+                        <input type="date" id="fecha" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="hora">Hora Deseada *</label>
+                        <select id="hora" required>
+                            <option value="">Seleccione...</option>
+                            <option value="11:30">11:30 AM</option>
+                            <option value="12:00">12:00 PM</option>
+                            <option value="12:30">12:30 PM</option>
+                            <option value="13:00">1:00 PM</option>
+                            <option value="13:30">1:30 PM</option>
+                            <option value="14:00">2:00 PM</option>
+                            <option value="14:30">2:30 PM</option>
+                            <option value="15:00">3:00 PM</option>
+                            <option value="15:30">3:30 PM</option>
+                        </select>
+                    </div>
+                    <div class="form-field full-width">
+                        <label for="comentarios">Comentarios o Solicitudes Especiales</label>
+                        <textarea id="comentarios"
+                            placeholder="¿Alguna ocasión especial? ¿Alguna preferencia? Cuéntenos acá..."></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn-submit">🎉 Confirmar Reserva</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="confirmation-modal" id="confirmationModal">
+        <div class="modal-content">
+            <div class="modal-icon">✅</div>
+            <h2>¡Reserva Confirmada!</h2>
+            <p>Listo, mij@. Su reserva quedó registrada. Le confirmaremos por WhatsApp en las próximas horas. ¡Nos vemos
+                pronto para que disfrute esta berraquera!</p>
+            <button class="btn-close-modal" onclick="closeModal()">Entendido</button>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="./logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+                <h3>Puro Humo</h3>
+                <p>¡La berraquera del chicharrón santandereano!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Sábados y Domingos</p>
+                <p>11:30 AM - 4:00 PM</p>
+                <p>Pilas!! Solo fines de semana</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ubicación</h3>
+                <p>Lagos / Floridablanca</p>
+                <p>Camine pa'cá, no se pierda</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
+                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander</p>
+        </div>
+    </footer>
+
+
+    <script src="./script.js"></script>
+    <script src="./reservation.js"></script>
+</body>
+
+</html>

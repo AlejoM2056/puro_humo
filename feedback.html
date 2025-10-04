@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Humo - Feedback</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="domicilios.html">Pida Su Chicharrón</a>
+                <a class="nav-link" href="feedback.html">Déjenos Su Opinión, Mij@</a>
+                <a class="btn-reserve" href="./reservacion.html">¡Reserve, no sea pingo!</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <br>
+
+    <!-- Feedback Section -->
+    <section class="feedback">
+        <div class="feedback-container">
+
+            <h2 class="section-title">Califica Con La Plena</h2>
+            <p class="section-subtitle">Tu opinión nos ayuda a mejorar</p>
+
+            <!-- Feedback Form -->
+            <div class="feedback-form">
+                <div class="rating-category">
+                    <span class="rating-label">🔥 Nivel de Ahumado</span>
+                    <div class="stars-container">
+                        <span class="star" onclick="rateStar(this, 1)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 2)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 3)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 4)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 5)">⭐️</span>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <span class="rating-label">🥑 Frescura de Acompañamientos</span>
+                    <div class="stars-container">
+                        <span class="star" onclick="rateStar(this, 1)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 2)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 3)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 4)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 5)">⭐️</span>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <span class="rating-label">📷 Presentación del Plato</span>
+                    <div class="stars-container">
+                        <span class="star" onclick="rateStar(this, 1)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 2)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 3)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 4)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 5)">⭐️</span>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <span class="rating-label">⏱️ Tiempo de Espera</span>
+                    <div class="stars-container">
+                        <span class="star" onclick="rateStar(this, 1)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 2)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 3)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 4)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 5)">⭐️</span>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <span class="rating-label">❤️ Calidad de Atención</span>
+                    <div class="stars-container">
+                        <span class="star" onclick="rateStar(this, 1)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 2)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 3)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 4)">⭐️</span>
+                        <span class="star" onclick="rateStar(this, 5)">⭐️</span>
+                    </div>
+                </div>
+
+                <div class="comment-box">
+                    <label>Cuéntanos tu experiencia</label>
+                    <textarea placeholder="¿Qué te pareció? ¿Algo que podamos mejorar?"></textarea>
+                </div>
+
+                <button class="btn-submit">Enviar Review</button>
+            </div>
+
+            <!-- Ideas Box -->
+            <div class="ideas-box">
+                <h3>Buzón de Ideas</h3>
+                <p>¿Tienes una idea para un nuevo plato o acompañamiento? ¡Compártela!</p>
+                <textarea placeholder="Ej: Chicharrón con hogao y plátano maduro..."></textarea>
+                <button class="btn-idea">Enviar Idea</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="./logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+                <h3>Puro Humo</h3>
+                <p>¡La berraquera del chicharrón santandereano!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Sábados y Domingos</p>
+                <p>11:30 AM - 4:00 PM</p>
+                <p>Pilas!! Solo fines de semana</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ubicación</h3>
+                <p>Lagos / Floridablanca</p>
+                <p>Camine pa'cá, no se pierda</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
+                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander</p>
+        </div>
+    </footer>
+    <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,353 @@
+
+#carritoFlotante {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #ff6b35;
+    color: white;
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+    display: none;
+}
+
+#panelCarrito {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: -400px;
+    width: 400px;
+    height: 100%;
+    background: white;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    transition: right 0.3s;
+    overflow-y: auto;
+}
+
+#panelCarrito .panel-content {
+    padding: 2rem;
+}
+
+#panelCarrito .panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+#panelCarrito .panel-header h3 {
+    margin: 0;
+}
+
+#panelCarrito .close-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#panelCarrito .btn-continuar {
+    width: 100%;
+    padding: 1rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+
+
+.option-group .arepa-section,
+.option-group .tuberculo-section {
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+    border-left: 3px solid #fb0000;
+}
+
+.option-group .section-title {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+/* Contador de Platos */
+#contadorPlatos {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #fff3e0;
+    border-left: 4px solid #ff6b35;
+    border-radius: 8px;
+    font-size: 1.1rem;
+}
+
+#contadorPlatos p {
+    margin: 0;
+    font-weight: bold;
+    color: black;
+}
+
+#contadorPlatos button {
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 2px solid #ff6b35;
+    color: black;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+#contadorPlatos button:hover {
+    background: #ff6b35;
+    color: white;
+}
+
+/* Botones de acción */
+.btn-actions {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn-actions .btn-save {
+    flex: 1;
+}
+
+.btn-actions .btn-finalizar {
+    flex: 1;
+    background: #28a745;
+}
+
+/* Modal Formulario de Entrega */
+#modalFormulario {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1002;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#modalFormulario .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 600px;
+    width: 90%;
+    margin: 2rem auto;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#modalFormulario h2 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+}
+
+#modalFormulario .resumen-pedido {
+    background: #f8f8f8;
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+}
+
+#modalFormulario .resumen-pedido h3 {
+    margin-bottom: 0.5rem;
+}
+
+#modalFormulario .form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#modalFormulario .form-field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+    font-size: 0.9rem;
+}
+
+#modalFormulario .form-field input,
+#modalFormulario .form-field textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+#modalFormulario .form-field textarea {
+    resize: vertical;
+}
+
+#modalFormulario .modal-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+#modalFormulario .btn-confirmar {
+    flex: 1;
+    padding: 1rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modalFormulario .btn-volver {
+    flex: 1;
+    padding: 1rem;
+    background: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Modal de Confirmación */
+#modalConfirmacion {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1003;
+    justify-content: center;
+    align-items: center;
+}
+
+#modalConfirmacion .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+#modalConfirmacion h2 {
+    color: #ff6b35;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+#modalConfirmacion p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+#modalConfirmacion .datos-confirmacion {
+    background: #f8f8f8;
+    padding: 1.5rem;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+#modalConfirmacion .datos-confirmacion p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}
+
+#modalConfirmacion .modal-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+#modalConfirmacion .btn-enviar {
+    flex: 1;
+    padding: 1rem;
+    background: #ff6b35;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#modalConfirmacion .btn-corregir {
+    flex: 1;
+    padding: 1rem;
+    background: #ddd;
+    color: #333;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Animación pulse */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 768px) {
+    #panelCarrito {
+        width: 100%;
+        right: -100%;
+    }
+    
+    .configurator-container {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .plate-preview {
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+
+    .plate-image-container {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4/3;
+        margin-bottom: 1rem;
+    }
+
+    .plate-text-container {
+        width: 100%;
+        text-align: center;
+        margin-top: 0.5rem;
+    }
+
+    .plate-title {
+        font-size: 1.3rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .plate-subtitle {
+        font-size: 1rem;
+        margin-top: 0.3rem;
+    }
+}

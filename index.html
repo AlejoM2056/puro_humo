@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Humo - Inicio</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="domicilios.html">Pida Su Chicharrón</a>
+                <a class="nav-link" href="feedback.html">Déjenos Su Opinión, Mij@</a>
+                <a class="btn-reserve" href="./reservacion.html">¡Reserve, no sea pingo!</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <!-- Video de fondo -->
+        <video class="hero-video" autoplay loop muted playsinline>
+            <source src="./humo.mp4" type="video/mp4">
+            Tu navegador no soporta el elemento de video.
+        </video>
+
+        <!-- Overlay oscuro opcional para mejorar legibilidad -->
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="hero-logo">
+            <h1 class="hero-title">PURO HUMO</h1>
+            <h2 class="hero-subtitle">CHICHARRÓN AL BARRIL</h2>
+            <p style="font-size: 1.5rem; margin-bottom: 2rem;">¡Qué berraquera de sabor, mijo! Tradición santandereana
+                ahumada a la perfección</p>
+
+            <div class="hero-buttons">
+                <button class="btn-primary" onclick="window.location.href='reservacion.html'">📅 ¡Reservá Ya,
+                    Pues!</button>
+                <button class="btn-secondary" onclick="window.location.href='domicilios.html'"> Pa' Comer En Su
+                    Casita</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-icon">🔥</div>
+                <div class="stat-number">8hrs</div>
+                <div class="stat-label">De Ahumado <br>Eso sí es ser teso</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">⭐</div>
+                <div class="stat-number">4.9/5</div>
+                <div class="stat-label">Calificación <br>La vaina está buena</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">📍</div>
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Ingredientes de Acá Mismito</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-icon">❤️</div>
+                <div class="stat-number">500+</div>
+                <div class="stat-label">Clientes Berracos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <h2 class="section-title">¿De Dónde Viene Esta Berraquera?</h2>
+        <p class="section-subtitle">Pilas con esto: Cada ingrediente es de nuestra tierra. Eso es lo que le da ese sabor
+            tan teso.</p>
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+
+            <div class="ingredient-carousel">
+                <div class="ingredient-card-detailed active">
+                    <div class="ingredient-emoji-large">🐷</div>
+                    <h3 class="ingredient-title">Cerdo Local Premium</h3>
+                    <div class="ingredient-location">📍 Piedecuesta, Santander</div>
+                    <div class="ingredient-description">
+                        <p>Criado en granjas familiares de Piedecuesta, este cerdo se alimenta de manera tradicional,
+                            garantizando una carne jugosa y con ese sabor auténtico que nos caracteriza.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🌾 Alimentación Natural</span>
+                            <span class="feature-tag">👨‍🌾 Crianza Artesanal</span>
+                            <span class="feature-tag">✨ 100% Panceta de cerdo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥑</div>
+                    <h3 class="ingredient-title">Aguacate Santandereano</h3>
+                    <div class="ingredient-location">📍 Lebrija, Santander</div>
+                    <div class="ingredient-description">
+                        <p>De las fincas de Lebrija llega este aguacate cremoso y mantequilloso. Perfecto para acompañar
+                            nuestro chicharrón, le da ese toque fresco que tanto te gusta.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥑 Cremoso</span>
+                            <span class="feature-tag">🌱 Cosecha Fresca</span>
+                            <span class="feature-tag">💚 Orgánico</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🌶️</div>
+                    <h3 class="ingredient-title">Ají Santandereano</h3>
+                    <div class="ingredient-location">📍 Floridablanca, Santander</div>
+                    <div class="ingredient-description">
+                        <p>¡Ojo con esto, mijo! Este ají picante es el alma de nuestros platos. Cultivado acá cerquita,
+                            le da ese toque berraco que hace la diferencia.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🔥 Picante Auténtico</span>
+                            <span class="feature-tag">🌶️ Receta Tradicional</span>
+                            <span class="feature-tag">⚡ Sabor Intenso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🌽</div>
+                    <h3 class="ingredient-title">Arepa Amarilla Y Blanca</h3>
+                    <div class="ingredient-location">📍 Bucaramanga, Santander</div>
+                    <div class="ingredient-description">
+                        <p>Hecha con maíz de la región, nuestras arepas son crujientes por fuera y quesudas por dentro.
+                            El acompañante perfecto de un santandereano, ¡como debe ser!</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🌽 Maíz Local</span>
+                            <span class="feature-tag">👩‍🍳 Receta Casera</span>
+                            <span class="feature-tag">🔥 Recién Asadas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥛</div>
+                    <h3 class="ingredient-title">Suero Costeño</h3>
+                    <div class="ingredient-location">📍 Costa Caribe, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Traído directo de la costa para darle ese toque cremoso y salado que combina perfecto con el
+                            chicharrón. ¡Una delicia caribeña en cada bocado!</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥛 Cremoso Natural</span>
+                            <span class="feature-tag">🌊 Sabor Costeño</span>
+                            <span class="feature-tag">🧂 Sal Marina</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥔</div>
+                    <h3 class="ingredient-title">Papa Criolla</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Papa criolla de la región, doradita y crocante. El acompañante tradicional que no puede
+                            faltar en un buen plato santandereano.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥔 Papa Criolla</span>
+                            <span class="feature-tag">🔥 Bien Doradita</span>
+                            <span class="feature-tag">🌾 De la Tierra</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍠</div>
+                    <h3 class="ingredient-title">Yuca Santandereana</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Yuca fresca de nuestras fincas, cocida al punto perfecto. Suave por dentro y con ese sabor
+                            que llena la barriga como debe ser.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🍠 Yuca Fresca</span>
+                            <span class="feature-tag">🌾 Cosecha Local</span>
+                            <span class="feature-tag">💪 Pa' Llenar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍌</div>
+                    <h3 class="ingredient-title">Maduro con Bocadillo y Queso</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>La combinación perfecta: plátano maduro asado, bocadillo veleño y queso campesino. ¡El toque
+                            dulce que hace la diferencia en cada bocado!</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🍌 Maduro Asado</span>
+                            <span class="feature-tag">🍬 Bocadillo Veleño</span>
+                            <span class="feature-tag">🧀 Queso Campesino</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+        </div>
+
+        <div class="carousel-indicators">
+            <span class="indicator active" onclick="goToSlide(0)"></span>
+            <span class="indicator" onclick="goToSlide(1)"></span>
+            <span class="indicator" onclick="goToSlide(2)"></span>
+            <span class="indicator" onclick="goToSlide(3)"></span>
+            <span class="indicator" onclick="goToSlide(4)"></span>
+            <span class="indicator" onclick="goToSlide(5)"></span>
+            <span class="indicator" onclick="goToSlide(6)"></span>
+            <span class="indicator" onclick="goToSlide(7)"></span>
+        </div>
+    </section>
+
+
+    <section class="gallery">
+        <h2 class="section-title">¡Quiubo Pues! Mira Es@s Berrac@s </h2>
+        <p class="section-subtitle">Pare bolas: Votá por tu foto favorita. La foto con más interacciones al final del
+            mes se gana un chicharrón carnudo... ¡Ojo pues, mij@! </p>
+
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-icon"></div>
+                <div class="gallery-info">
+                    <span class="gallery-user">María G.</span>
+                    <div>❤️ 124</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"></div>
+                <div class="gallery-info">
+                    <span class="gallery-user">Carlos M.</span>
+                    <div>❤️ 98</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"></div>
+                <div class="gallery-info">
+                    <span class="gallery-user">Ana L.</span>
+                    <div>❤️ 156</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-icon"></div>
+                <div class="gallery-info">
+                    <span class="gallery-user">Pedro R.</span>
+                    <div>❤️ 87</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="./logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+                <h3>Puro Humo</h3>
+                <p>¡La berraquera del chicharrón santandereano!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Sábados y Domingos</p>
+                <p>11:30 AM - 4:00 PM</p>
+                <p>Pilas!! Solo fines de semana</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ubicación</h3>
+                <p>Lagos / Floridablanca</p>
+                <p>Camine pa'cá, no se pierda</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
+                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>

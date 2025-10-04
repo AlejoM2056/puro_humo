@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puro Humo - Domicilios</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./domicilios.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a class="nav-link" href="index.html">Inicio</a>
+                <a class="nav-link" href="domicilios.html">Pida Su Chicharrón</a>
+                <a class="nav-link" href="feedback.html">Déjenos Su Opinión, Mij@</a>
+                <a class="btn-reserve" href="./reservacion.html">¡Reserve, no sea pingo!</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+    <br>
+
+    <div id="panelCarrito">
+        <div class="panel-content">
+            <div class="panel-header">
+                <h3>Su Pedido 🔥</h3>
+                <button onclick="toggleCarrito()" class="close-btn">✕</button>
+            </div>
+            <div id="listaCarrito"></div>
+            <button onclick="mostrarFormularioEntrega()" class="btn-continuar">
+                Continuar el Pedido
+            </button>
+        </div>
+    </div>
+
+    <section class="configurator">
+        <h2 class="section-title">Pida su Chicharronsito</h2>
+        <p class="section-subtitle">Ponga los acompañantes como le provoque, pa' que quede calidad</p>
+        <div class="configurator-container">
+            <div class="plate-preview">
+                <div class="plate-image-container">
+                    <img src="imag.jpg" alt="Plato de chicharrón" id="plateImage">
+                </div>
+                <div class="plate-text-container">
+                    <div class="plate-title">Su Plato Bien Bravo Armado a su Gusto</div>
+                    <div class="plate-subtitle">¡Pa' que chupe dedo y repita sin pena!</div>
+                </div>
+            </div>
+            <div class="options-panel">
+                <div class="option-group">
+                    <h3>Base Principal</h3>
+                    <label class="option-label">
+                        <input type="checkbox" id="chicharron" checked onchange="updatePlate()">
+                        <span>Chicharrón Ahumado (250g) / La verraquera mij@</span>
+                    </label>
+                </div>
+
+                <div class="option-group">
+                    <h3>Salsas</h3>
+                    <label class="option-label">
+                        <input type="checkbox" id="aji" checked onchange="updatePlate()">
+                        <span>Ají Casero Santandereano / Picosito ligero </span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" id="tartara" checked onchange="updatePlate()">
+                        <span>Salsa Tártara / La propia Bumanguesa </span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" id="suero" checked onchange="updatePlate()">
+                        <span>Suero / Al que no le gusta, que no joda</span>
+                    </label>
+                </div>
+
+                <div class="option-group">
+                    <h3>Acompañamientos</h3>
+                    <label class="option-label">
+                        <input type="checkbox" id="aguacate" checked onchange="updatePlate()">
+                        <span>Aguacate del que es pa hoy </span>
+                    </label>
+                    <label class="option-label">
+                        <input type="checkbox" id="maduro" checked onchange="updatePlate()">
+                        <span>Maduro con queso y bocadillo, el propio casao' </span>
+                    </label>
+
+                    <div class="arepa-section">
+                        <p class="section-title">Escoja su arepa quesuda:</p>
+                        <label class="option-label">
+                            <input type="radio" name="arepa" id="arepa-amarilla" checked onchange="updatePlate()">
+                            <span>Arepa Amarilla bien doradita</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="arepa" id="arepa-blanca" onchange="updatePlate()">
+                            <span>Arepa Blanca bien tostadita</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="arepa" id="sin-arepa" onchange="updatePlate()">
+                            <span>Sin arepa</span>
+                        </label>
+                    </div>
+
+                    <div class="tuberculo-section">
+                        <p class="section-title">Escoja su acompañante mano:</p>
+                        <label class="option-label">
+                            <input type="radio" name="tuberculo" id="yuca" checked onchange="updatePlate()">
+                            <span>Yuca pa' llenar la barriga</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="tuberculo" id="papa" onchange="updatePlate()">
+                            <span>Papa delicia pa'</span>
+                        </label>
+                        <label class="option-label">
+                            <input type="radio" name="tuberculo" id="sin-tuberculo" onchange="updatePlate()">
+                            <span>Sin acompañante</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div id="contadorPlatos">
+                    <p>Ya lleva <span id="numeroPlatos">0</span> plato(s) en su pedido</p>
+                    <button onclick="toggleCarrito()">Ver mi pedido completo</button>
+                </div>
+
+                <div class="btn-actions">
+                    <button class="btn-save" onclick="agregarAlCarrito()">
+                        + Agregar Otro Plato
+                    </button>
+                    <button class="btn-save btn-finalizar" onclick="agregarAlCarrito(); mostrarFormularioEntrega();">
+                        Con eso me voy feliz, Mándelo ya
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal Formulario de Entrega -->
+    <div id="modalFormulario">
+        <div class="modal-content">
+            <h2>📍 ¿Pa' Dónde lo Mandamos?</h2>
+
+            <div class="resumen-pedido">
+                <h3>Su Pedido:</h3>
+                <div id="resumenPedido"></div>
+            </div>
+
+            <div class="form-fields">
+                <div class="form-field">
+                    <label>Nombre completo:</label>
+                    <input type="text" id="nombre" placeholder="¿Cómo se llama parce?" required>
+                </div>
+
+                <div class="form-field">
+                    <label>Teléfono:</label>
+                    <input type="tel" id="telefono" placeholder="300 123 4567" required>
+                </div>
+
+                <div class="form-field">
+                    <label>Dirección completa:</label>
+                    <input type="text" id="direccion" placeholder="Calle, carrera, número..." required>
+                </div>
+
+                <div class="form-field">
+                    <label>Barrio:</label>
+                    <input type="text" id="barrio" placeholder="¿En qué barrio vive?" required>
+                </div>
+
+                <div class="form-field">
+                    <label>Indicaciones adicionales:</label>
+                    <textarea id="indicaciones"
+                        placeholder="Numero de la Casa o Aparmanto, Portón Negro, Al Lado De Donde Mary.."
+                        rows="3"></textarea>
+                </div>
+            </div>
+
+            <div class="modal-buttons">
+                <button onclick="guardarPedido()" class="btn-confirmar">
+                    ¡Confirmar Pedido!
+                </button>
+                <button onclick="cerrarFormulario()" class="btn-volver">
+                    Volver
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmación -->
+    <div id="modalConfirmacion">
+        <div class="modal-content">
+            <h2>¡Ole <span id="nombreConfirm"></span>!</h2>
+            <p>¿Seguro que los datos están correctos?</p>
+
+            <div class="datos-confirmacion">
+                <p><strong>📱 Teléfono:</strong> <span id="telefonoConfirm"></span></p>
+                <p><strong>📍 Dirección:</strong> <span id="direccionConfirm"></span></p>
+                <p><strong>🏘️ Barrio:</strong> <span id="barrioConfirm"></span></p>
+                <p><strong>📝 Indicaciones:</strong> <span id="indicacionesConfirm"></span></p>
+            </div>
+
+            <div class="modal-buttons">
+                <button onclick="confirmarPedido()" class="btn-enviar">
+                    ¡Sí, mande ese pedido! 🔥
+                </button>
+                <button onclick="cerrarModal()" class="btn-corregir">
+                    Dejeme corregir
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <img src="./logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+                <h3>Puro Humo</h3>
+                <p>¡La berraquera del chicharrón santandereano, vea!</p>
+            </div>
+            <div class="footer-section">
+                <h3>Horarios</h3>
+                <p>Sábados y Domingos</p>
+                <p>11:30 AM - 4:00 PM</p>
+                <p>Pilas!! Solo fines de semana, no se confíe</p>
+            </div>
+            <div class="footer-section">
+                <h3>Ubicación</h3>
+                <p>Lagos / Floridablanca</p>
+                <p>Camine pa'cá, no se pierda que esto es fácil</p>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
+                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
+                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander con toda la verraquera</p>
+        </div>
+    </footer>
+
+    <script src="./script.js"></script>
+    <script src="./domicilios.js"></script>
+</body>
+
+</html>
