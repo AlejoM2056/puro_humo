@@ -1,4 +1,3 @@
-
 #carritoFlotante {
     position: fixed;
     bottom: 20px;
@@ -76,7 +75,6 @@
     font-size: 0.9rem;
 }
 
-/* Contador de Platos */
 #contadorPlatos {
     display: none;
     margin-top: 1rem;
@@ -110,7 +108,6 @@
     color: white;
 }
 
-/* Botones de acción */
 .btn-actions {
     display: flex;
     gap: 1rem;
@@ -125,7 +122,6 @@
     background: #28a745;
 }
 
-/* Modal Formulario de Entrega */
 #modalFormulario {
     display: none;
     position: fixed;
@@ -223,7 +219,6 @@
     cursor: pointer;
 }
 
-/* Modal de Confirmación */
 #modalConfirmacion {
     display: none;
     position: fixed;
@@ -299,11 +294,13 @@
     cursor: pointer;
 }
 
-/* Animación pulse */
 @keyframes pulse {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.05);
     }
@@ -314,7 +311,7 @@
         width: 100%;
         right: -100%;
     }
-    
+
     .configurator-container {
         grid-template-columns: 1fr;
         padding: 1rem;

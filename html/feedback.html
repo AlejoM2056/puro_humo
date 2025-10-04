@@ -5,34 +5,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puro Humo - Feedback</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="./logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+                <img src="../img/logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
             </div>
             <div class="nav-menu" id="navMenu">
                 <a class="nav-link" href="index.html">Inicio</a>
                 <a class="nav-link" href="domicilios.html">Pida Su Chicharrón</a>
                 <a class="nav-link" href="feedback.html">Déjenos Su Opinión, Mij@</a>
-                <a class="btn-reserve" href="./reservacion.html">¡Reserve, no sea pingo!</a>
+                <a class="btn-reserve" href="reservacion.html">¡Reserve, no sea pingo!</a>
             </div>
             <button class="menu-toggle" onclick="toggleMenu()">☰</button>
         </div>
     </nav>
     <br>
 
-    <!-- Feedback Section -->
     <section class="feedback">
         <div class="feedback-container">
-
             <h2 class="section-title">Califica Con La Plena</h2>
             <p class="section-subtitle">Tu opinión nos ayuda a mejorar</p>
-
-            <!-- Feedback Form -->
             <div class="feedback-form">
                 <div class="rating-category">
                     <span class="rating-label">🔥 Nivel de Ahumado</span>
@@ -44,7 +40,6 @@
                         <span class="star" onclick="rateStar(this, 5)">⭐️</span>
                     </div>
                 </div>
-
                 <div class="rating-category">
                     <span class="rating-label">🥑 Frescura de Acompañamientos</span>
                     <div class="stars-container">
@@ -55,7 +50,6 @@
                         <span class="star" onclick="rateStar(this, 5)">⭐️</span>
                     </div>
                 </div>
-
                 <div class="rating-category">
                     <span class="rating-label">📷 Presentación del Plato</span>
                     <div class="stars-container">
@@ -66,7 +60,6 @@
                         <span class="star" onclick="rateStar(this, 5)">⭐️</span>
                     </div>
                 </div>
-
                 <div class="rating-category">
                     <span class="rating-label">⏱️ Tiempo de Espera</span>
                     <div class="stars-container">
@@ -77,7 +70,6 @@
                         <span class="star" onclick="rateStar(this, 5)">⭐️</span>
                     </div>
                 </div>
-
                 <div class="rating-category">
                     <span class="rating-label">❤️ Calidad de Atención</span>
                     <div class="stars-container">
@@ -88,16 +80,12 @@
                         <span class="star" onclick="rateStar(this, 5)">⭐️</span>
                     </div>
                 </div>
-
                 <div class="comment-box">
                     <label>Cuéntanos tu experiencia</label>
                     <textarea placeholder="¿Qué te pareció? ¿Algo que podamos mejorar?"></textarea>
                 </div>
-
                 <button class="btn-submit">Enviar Review</button>
             </div>
-
-            <!-- Ideas Box -->
             <div class="ideas-box">
                 <h3>Buzón de Ideas</h3>
                 <p>¿Tienes una idea para un nuevo plato o acompañamiento? ¡Compártela!</p>
@@ -107,11 +95,10 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-section">
-                <img src="./logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+                <img src="../img/logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
                 <h3>Puro Humo</h3>
                 <p>¡La berraquera del chicharrón santandereano!</p>
             </div>
@@ -138,7 +125,7 @@
             <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander</p>
         </div>
     </footer>
-    <script src="./script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 
 </html>

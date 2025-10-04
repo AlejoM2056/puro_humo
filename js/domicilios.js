@@ -15,7 +15,6 @@ function agregarAlCarrito() {
   carrito.push(plato);
   actualizarCarrito();
 
-
   const contadorDiv = document.getElementById("contadorPlatos");
   const numeroPlatos = document.getElementById("numeroPlatos");
 
@@ -197,8 +196,6 @@ function confirmarPedido() {
 
   cerrarModal();
   document.getElementById("modalConfirmacion").style.display = "none";
-
-
   
   carrito = [];
   actualizarCarrito();

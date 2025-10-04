@@ -1,11 +1,16 @@
-// Marcar el enlace activo según la página actual
 document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
     
     navLinks.forEach(link => {
+        link.classList.remove('active'); 
+        
         const href = link.getAttribute('href');
-        if (href === currentPage || (currentPage === '' && href === 'index.html')) {
+        const cleanHref = href.replace(/^\.\.\//, '').replace(/^\.\//, '');
+        
+        if (cleanHref === currentPage || 
+            (currentPage === '' && cleanHref === 'index.html') ||
+            cleanHref.endsWith(currentPage)) {
             link.classList.add('active');
         }
     });
@@ -33,8 +38,6 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 
-
-
 function rateStar(element, rating) {
   var container = element.parentElement;
   var stars = container.getElementsByClassName("star");
@@ -56,13 +59,11 @@ setInterval(function () {
   viewersElement.textContent = newViewers;
 }, 3000);
 
-
 let currentSlide = 0;
 const slides = document.querySelectorAll(".ingredient-card-detailed");
 const indicators = document.querySelectorAll(".indicator");
 let autoSlideInterval;
 
-// Función para mostrar una diapositiva específica
 function showSlide(index) {
     slides.forEach((slide, i) => {
         slide.classList.remove("active");
@@ -74,7 +75,6 @@ function showSlide(index) {
     currentSlide = index;
 }
 
-// Función para mover el carrusel hacia adelante o atrás
 function moveCarousel(direction) {
     let newIndex = currentSlide + direction;
     if (newIndex < 0) {
@@ -86,26 +86,22 @@ function moveCarousel(direction) {
     resetAutoSlide();
 }
 
-// Función para ir directamente a una diapositiva
 function goToSlide(index) {
     showSlide(index);
     resetAutoSlide();
 }
 
-// Función para activar el auto cambio cada 10s
 function startAutoSlide() {
     autoSlideInterval = setInterval(() => {
         moveCarousel(1);
-    }, 5000); // 10 segundos
+    }, 5000); 
 }
 
-// Reinicia el temporizador cuando el usuario interactúa
 function resetAutoSlide() {
     clearInterval(autoSlideInterval);
     startAutoSlide();
 }
 
-// Inicializar carrusel
 showSlide(currentSlide);
 startAutoSlide();
 

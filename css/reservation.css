@@ -1,0 +1,428 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
+
+ body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     color: #000;
+     overflow-x: hidden;
+     background: #f5f5f5;
+ }
+
+ .navbar {
+     position: fixed;
+     top: 0;
+     left: 0;
+     right: 0;
+     background: rgba(255, 255, 255, 0.95);
+     backdrop-filter: blur(10px);
+     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+     z-index: 1000;
+     padding: 0.3rem 0.2rem;
+ }
+
+ .nav-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+
+ .logo-icon {
+     width: 80px;
+     height: 80px;
+     object-fit: contain;
+ }
+
+ .nav-menu {
+     display: flex;
+     gap: 1rem;
+     align-items: center;
+ }
+
+ .nav-link {
+     position: relative;
+     text-decoration: none;
+     color: #000;
+     font-weight: 600;
+     transition: all 0.3s;
+     font-family: 'Arial', sans-serif;
+     cursor: pointer;
+     padding-bottom: 5px;
+ }
+
+ .nav-link:hover {
+     color: #666;
+ }
+
+ .nav-link.active {
+     color: #ff6b35;
+ }
+
+ .nav-link.active::after {
+     content: '';
+     position: absolute;
+     bottom: -5px;
+     left: 0;
+     width: 100%;
+     height: 3px;
+     background: #ff6b35;
+     border-radius: 2px;
+ }
+
+ .btn-reserve {
+     background: #000;
+     color: #fff;
+     padding: 0.75rem 1.5rem;
+     border-radius: 50px;
+     border: none;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s;
+     font-size: 0.9rem;
+ }
+
+ .btn-reserve:hover {
+     background: #333;
+     transform: translateY(-2px);
+ }
+
+ .menu-toggle {
+     display: none;
+     background: none;
+     border: none;
+     font-size: 1.5rem;
+     cursor: pointer;
+ }
+
+ .reservas-section {
+     min-height: 100vh;
+     padding: 8rem 2rem 4rem;
+     background: #f5f5f5;
+ }
+
+ .reservas-container {
+     max-width: 1000px;
+     margin: 0 auto;
+ }
+
+ .section-header {
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+
+ .section-title {
+     font-size: 3rem;
+     font-weight: bold;
+     margin-bottom: 1rem;
+     color: #000;
+ }
+
+ .section-subtitle {
+     color: #666;
+     font-size: 1.3rem;
+     max-width: 600px;
+     margin: 0 auto;
+ }
+
+ .info-banner {
+     background: linear-gradient(135deg, #000 0%, #333 100%);
+     color: #fff;
+     padding: 2rem;
+     border-radius: 30px;
+     margin-bottom: 3rem;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+ }
+
+ .info-banner h3 {
+     font-size: 1.8rem;
+     margin-bottom: 1rem;
+ }
+
+ .info-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+     gap: 1.5rem;
+     margin-top: 1.5rem;
+ }
+
+ .info-item {
+     display: flex;
+     align-items: center;
+     gap: 0.75rem;
+ }
+
+ .info-icon {
+     font-size: 2rem;
+ }
+
+ .info-text {
+     font-size: 1rem;
+     line-height: 1.4;
+ }
+
+ .reserva-form {
+     background: #fff;
+     padding: 3rem;
+     border-radius: 30px;
+     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+ }
+
+ .form-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 1.5rem;
+     margin-bottom: 1.5rem;
+ }
+
+ .form-field {
+     display: flex;
+     flex-direction: column;
+ }
+
+ .form-field label {
+     font-weight: bold;
+     margin-bottom: 0.5rem;
+     font-size: 1rem;
+     color: #333;
+ }
+
+ .form-field input,
+ .form-field select,
+ .form-field textarea {
+     padding: 0.9rem;
+     border: 2px solid #e0e0e0;
+     border-radius: 15px;
+     font-size: 1rem;
+     font-family: inherit;
+     transition: all 0.3s;
+ }
+
+ .form-field input:focus,
+ .form-field select:focus,
+ .form-field textarea:focus {
+     outline: none;
+     border-color: #000;
+ }
+
+ /* Estilos personalizados para los selectores */
+ .form-field select {
+     appearance: none;
+     -webkit-appearance: none;
+     -moz-appearance: none;
+     background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+     background-repeat: no-repeat;
+     background-position: right 1rem center;
+     background-size: 1.2rem;
+     padding-right: 3rem;
+     cursor: pointer;
+ }
+
+ .form-field select:hover {
+     border-color: #666;
+ }
+
+ .form-field select:focus {
+     border-color: #000;
+     box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .form-field select option {
+     padding: 0.75rem;
+     background: #fff;
+     color: #000;
+ }
+
+ .form-field select option:disabled {
+     color: #999;
+ }
+
+ .form-field textarea {
+     resize: vertical;
+     min-height: 100px;
+ }
+
+ .full-width {
+     grid-column: 1 / -1;
+ }
+
+ .btn-submit {
+     width: 100%;
+     background: #000;
+     color: #fff;
+     padding: 1.3rem;
+     border: none;
+     border-radius: 20px;
+     font-size: 1.2rem;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s;
+     margin-top: 1rem;
+ }
+
+ .btn-submit:hover {
+     background: #333;
+     transform: translateY(-2px);
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+ }
+
+ .confirmation-modal {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.7);
+     z-index: 2000;
+     justify-content: center;
+     align-items: center;
+     padding: 2rem;
+ }
+
+ .modal-content {
+     background: white;
+     padding: 3rem;
+     border-radius: 30px;
+     max-width: 500px;
+     width: 100%;
+     text-align: center;
+     animation: slideIn 0.3s;
+ }
+
+ @keyframes slideIn {
+     from {
+         transform: translateY(-50px);
+         opacity: 0;
+     }
+
+     to {
+         transform: translateY(0);
+         opacity: 1;
+     }
+ }
+
+ .modal-icon {
+     font-size: 4rem;
+     margin-bottom: 1rem;
+ }
+
+ .modal-content h2 {
+     font-size: 2rem;
+     margin-bottom: 1rem;
+     color: #000;
+ }
+
+ .modal-content p {
+     color: #666;
+     font-size: 1.1rem;
+     margin-bottom: 2rem;
+     line-height: 1.6;
+ }
+
+ .btn-close-modal {
+     background: #000;
+     color: #fff;
+     padding: 1rem 2rem;
+     border: none;
+     border-radius: 20px;
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s;
+ }
+
+ .btn-close-modal:hover {
+     background: #333;
+ }
+
+ .footer {
+     background: #000;
+     color: #fff;
+     padding: 3rem 2rem;
+ }
+
+ .footer-container {
+     max-width: 1200px;
+     margin: 0 auto;
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+     gap: 2rem;
+ }
+
+ .footer-section h3 {
+     margin-bottom: 1rem;
+     font-size: 1.2rem;
+     font-weight: 600;
+ }
+
+ .footer-section p {
+     margin-bottom: 1rem;
+     line-height: 1.6;
+ }
+
+ .footer-logo {
+     width: 80px;
+     height: 80px;
+     margin-bottom: 1rem;
+ }
+
+ .footer-bottom {
+     text-align: center;
+     margin-top: 2rem;
+     padding-top: 2rem;
+     border-top: 1px solid #333;
+     color: #ccc;
+ }
+
+ @media (max-width: 768px) {
+     .nav-menu {
+         display: none;
+         position: absolute;
+         top: 100%;
+         left: 0;
+         right: 0;
+         background: #fff;
+         flex-direction: column;
+         padding: 1rem;
+         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+     }
+
+     .nav-menu.active {
+         display: flex;
+     }
+
+     .menu-toggle {
+         display: block;
+     }
+
+     .section-title {
+         font-size: 2rem;
+     }
+
+     .section-subtitle {
+         font-size: 1.1rem;
+     }
+
+     .reserva-form {
+         padding: 2rem 1.5rem;
+     }
+
+     .form-grid {
+         grid-template-columns: 1fr;
+     }
+
+     .info-banner {
+         padding: 1.5rem;
+     }
+
+     .info-banner h3 {
+         font-size: 1.5rem;
+     }
+
+     .modal-content {
+         padding: 2rem;
+     }
+ }
