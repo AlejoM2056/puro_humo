@@ -51,13 +51,7 @@ function rateStar(element, rating) {
   }
 }
 
-setInterval(function () {
-  var viewersElement = document.getElementById("viewers");
-  var currentViewers = parseInt(viewersElement.textContent);
-  var change = Math.floor(Math.random() * 3) - 1;
-  var newViewers = Math.max(15, currentViewers + change);
-  viewersElement.textContent = newViewers;
-}, 3000);
+
 
 let currentSlide = 0;
 const slides = document.querySelectorAll(".ingredient-card-detailed");
@@ -106,3 +100,29 @@ showSlide(currentSlide);
 startAutoSlide();
 
 
+// Intersection Observer para animaciones de scroll
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    // Observar todos los elementos con clase scroll-reveal
+    const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+    revealElements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Inicializar animaciones cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+    initScrollAnimations();
+});

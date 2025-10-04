@@ -10,6 +10,65 @@
      overflow-x: hidden;
  }
 
+/* Animaciones de Scroll Reveal */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hacer que los elementos del configurator NO se animen si están en el viewport inicial */
+.configurator .scroll-reveal,
+.configurator .scroll-reveal-left,
+.configurator .scroll-reveal-right {
+    opacity: 1;
+    transform: translateY(0);
+}
+.scroll-reveal.delay-1 {
+    transition-delay: 0.1s;
+}
+
+.scroll-reveal.delay-2 {
+    transition-delay: 0.2s;
+}
+
+.scroll-reveal.delay-3 {
+    transition-delay: 0.3s;
+}
+
+.scroll-reveal.delay-4 {
+    transition-delay: 0.4s;
+}
+
+.scroll-reveal-left {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Animación desde la derecha */
+.scroll-reveal-right {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.scroll-reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+
  .navbar {
      position: fixed;
      top: 0;
@@ -554,12 +613,16 @@
      color: #fff;
  }
 
- .configurator {
-     min-height: 100vh;
-     background: #f5f5f5;
-     padding: 6rem 2rem 4rem;
- }
 
+
+ .configurator {
+    min-height: 100vh;
+    background: #f5f5f5;
+    padding-top: 9rem; /* Cambia de 6rem a 9rem */
+    padding-bottom: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
  .configurator-container {
      max-width: 1200px;
      margin: 0 auto;
