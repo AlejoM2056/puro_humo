@@ -143,7 +143,43 @@ function initScrollAnimations() {
     });
 }
 
-// Inicializar animaciones cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-    initScrollAnimations();
+document.querySelectorAll('.heart').forEach(heart => {
+  const span = heart.querySelector('span');
+  const photoId = heart.dataset.id;
+  const votedPhoto = localStorage.getItem('votedPhoto');
+  const message = document.getElementById('vote-message');
+
+  // Si ya votó por esta foto, mantener el corazón rojo
+  if (votedPhoto === photoId) {
+    heart.classList.add('clicked');
+  }
+
+  heart.addEventListener('click', () => {
+    const alreadyVoted = localStorage.getItem('votedPhoto');
+    if (alreadyVoted) {
+      showVoteMessage();
+      return;
+    }
+
+    // Sumar +1 al contador
+    let likes = parseInt(span.textContent);
+    likes += 1;
+    span.textContent = likes;
+    heart.classList.add('clicked');
+    localStorage.setItem('votedPhoto', photoId);
+
+    // animación sutil
+    heart.style.transform = 'scale(1.3)';
+    setTimeout(() => heart.style.transform = 'scale(1)', 200);
+  });
+
+  // Función para mostrar mensaje animado
+  function showVoteMessage() {
+    message.classList.remove('hidden');
+    message.classList.add('show');
+    setTimeout(() => {
+      message.classList.remove('show');
+      setTimeout(() => message.classList.add('hidden'), 300);
+    }, 2500);
+  }
 });

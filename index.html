@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +8,14 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="icon" type="image/png" href="./img/logo-puro-humo.png">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
-                <img src="./img/logo-puro-humo.png" href="./index.html" alt="Puro Humo Logo" class="logo-icon">
+                <a href="../index.html">
+                    <img src="../img/logo-puro-humo.png" alt="Puro Humo Logo" class="logo-icon">
+                </a>
             </div>
             <div class="nav-menu" id="navMenu">
                 <a class="nav-link" href="index.html">Inicio</a>
@@ -38,13 +42,13 @@
             <div class="hero-buttons">
                 <button class="btn-primary" onclick="window.location.href='./html/reservacion.html'">📅 ¡Reservá Ya,
                     Pues!</button>
-                <button class="btn-secondary" onclick="window.location.href='./html/domicilios.html'"> Pa' Comer En 
+                <button class="btn-secondary" onclick="window.location.href='./html/domicilios.html'"> Pa' Comer En
                     Casita</button>
             </div>
         </div>
     </section>
 
- 
+
     <section class="stats">
         <div class="stats-container ">
             <div class="stat-item">
@@ -71,335 +75,354 @@
     </section>
 
     <section class="map-section">
-    <h2 class="section-title">¿De Dónde Viene Esta Berraquera?</h2>
-    <p class="section-subtitle">Pilas con esto: Cada ingrediente es de nuestra tierra. Eso es lo que le da ese sabor
-        tan teso.</p>
+        <h2 class="section-title">¿De Dónde Viene Esta Berraquera?</h2>
+        <p class="section-subtitle">Pilas con esto: Cada ingrediente es de nuestra tierra. Eso es lo que le da ese sabor
+            tan teso.</p>
 
-    <div class="carousel-container">
-        <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
 
-        <div class="ingredient-carousel">
-            <!-- CHORIZO -->
-            <div class="ingredient-card-detailed active">
-                <div class="ingredient-emoji-large">🌭</div>
-                <h3 class="ingredient-title">Chorizo Santandereano</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Bien asadito, jugoso y con ese sabor casero que te hace soltar un "uff, qué nota". Preparado con receta tradicional de la región.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🔥 Bien Asadito</span>
-                        <span class="feature-tag">🌶️ Sabor Casero</span>
-                        <span class="feature-tag">✨ Receta Tradicional</span>
+            <div class="ingredient-carousel">
+                <!-- CHORIZO -->
+                <div class="ingredient-card-detailed active">
+                    <div class="ingredient-emoji-large">🌭</div>
+                    <h3 class="ingredient-title">Chorizo Santandereano</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Bien asadito, jugoso y con ese sabor casero que te hace soltar un "uff, qué nota". Preparado
+                            con receta tradicional de la región.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🔥 Bien Asadito</span>
+                            <span class="feature-tag">🌶️ Sabor Casero</span>
+                            <span class="feature-tag">✨ Receta Tradicional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MAZORCA -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🌽</div>
+                    <h3 class="ingredient-title">Mazorca con Todos los Chiches</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Bañada en mantequilla, crema agria, queso costeño rallado y su toque de tajín. ¡Una explosión
+                            de sabor en cada mordisco!</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🧈 Con Mantequilla</span>
+                            <span class="feature-tag">🧀 Queso Costeño</span>
+                            <span class="feature-tag">🌶️ Toque de Tajín</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MADURO -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍌</div>
+                    <h3 class="ingredient-title">Maduro con Bocadillo y Queso</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Casao perfecto, con queso doble crema derretido y bocadillo veleño. El toque dulce que hace
+                            la diferencia en cada bocado.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🍌 Maduro Asado</span>
+                            <span class="feature-tag">🍬 Bocadillo Veleño</span>
+                            <span class="feature-tag">🧀 Queso Doble Crema</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PIÑA ASADA -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍍</div>
+                    <h3 class="ingredient-title">Piña Asada</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Con un toque de canela y miel de abeja que la deja brutal... pa' que quieras repetir. Un
+                            acompañamiento único que te sorprenderá.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🍯 Con Miel de Abeja</span>
+                            <span class="feature-tag">✨ Toque de Canela</span>
+                            <span class="feature-tag">🔥 Bien Asadita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PATACÓN -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍌</div>
+                    <h3 class="ingredient-title">Patacón</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Bien aplastao' y crocante, como se hace aquí. El acompañamiento tradicional que no puede
+                            faltar en un buen plato santandereano.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🔨 Bien Aplastao'</span>
+                            <span class="feature-tag">🔥 Crocante</span>
+                            <span class="feature-tag">🌾 Tradicional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAPA AL VAPOR -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥔</div>
+                    <h3 class="ingredient-title">Papa al Vapor</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Suavecita y calentica, la que combina con todo y nunca falla. Papa santandereana cocida al
+                            punto perfecto.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥔 Papa Regional</span>
+                            <span class="feature-tag">💨 Al Vapor</span>
+                            <span class="feature-tag">💛 Suavecita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YUCA AL VAPOR -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍠</div>
+                    <h3 class="ingredient-title">Yuca al Vapor</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Bien cocida, suave por dentro y con ese gustico. Yuca fresca de nuestras fincas, preparada
+                            con cariño.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🍠 Yuca Fresca</span>
+                            <span class="feature-tag">🌾 Cosecha Local</span>
+                            <span class="feature-tag">💪 Pa' Llenar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PAPAS FRITAS -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍟</div>
+                    <h3 class="ingredient-title">Papas Fritas</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Crujientes, doraditas y con su puntico de sal. Un clásico infaltable que todos aman y nunca
+                            falla.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🔥 Bien Doraditas</span>
+                            <span class="feature-tag">🧂 Punto de Sal</span>
+                            <span class="feature-tag">✨ Crujientes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- YUCAS FRITAS -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍟</div>
+                    <h3 class="ingredient-title">Yucas Fritas</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Crujientes, doraditas y con su puntico de sal. La versión santandereana de las papas fritas
+                            que te va a encantar.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🔥 Bien Fritas</span>
+                            <span class="feature-tag">🧂 Punto de Sal</span>
+                            <span class="feature-tag">💛 Doraditas</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GUACAMOLE -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥑</div>
+                    <h3 class="ingredient-title">Guacamole Casero</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Cremoso y fresquito con su toque de limón que lo pone sabrosón. Pa' untar sin pena y repetir
+                            sin culpa.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥑 Cremoso</span>
+                            <span class="feature-tag">🍋 Con Limón</span>
+                            <span class="feature-tag">🌱 Fresco</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GUISO -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍲</div>
+                    <h3 class="ingredient-title">Guiso Santandereano</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Ese sofrito casero que huele a puro almuerzo de abuela. ¡Una chimba pa' acompañar todo!</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">👵 Receta de Abuela</span>
+                            <span class="feature-tag">🔥 Sofrito Casero</span>
+                            <span class="feature-tag">✨ Sabor Tradicional</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PICO DE GALLO -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🍅</div>
+                    <h3 class="ingredient-title">Pico de Gallo</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Picantico y con sabor que despierta. Le da vida a cada bocado con su frescura y ese toque
+                            picosito.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🌶️ Picantico</span>
+                            <span class="feature-tag">🍅 Fresco</span>
+                            <span class="feature-tag">⚡ Sabor Intenso</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TÁRTARA -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥫</div>
+                    <h3 class="ingredient-title">Tártara Santandereana</h3>
+                    <div class="ingredient-location">📍 Santander, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Suave y cremosa, con ese toque Santandereano que combina brutal con lo frito. La salsa que no
+                            puede faltar.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥫 Cremosa</span>
+                            <span class="feature-tag">✨ Toque Regional</span>
+                            <span class="feature-tag">💛 Suavecita</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SUERO COSTEÑO -->
+                <div class="ingredient-card-detailed">
+                    <div class="ingredient-emoji-large">🥛</div>
+                    <h3 class="ingredient-title">Suero Costeño</h3>
+                    <div class="ingredient-location">📍 Costa Caribe, Colombia</div>
+                    <div class="ingredient-description">
+                        <p>Espesito y con ese gustico que solo el Caribe sabe dar. Traído directo de la costa para darle
+                            ese toque cremoso perfecto.</p>
+                        <div class="ingredient-features">
+                            <span class="feature-tag">🥛 Cremoso Natural</span>
+                            <span class="feature-tag">🌊 Sabor Costeño</span>
+                            <span class="feature-tag">🧂 Sal Marina</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- MAZORCA -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🌽</div>
-                <h3 class="ingredient-title">Mazorca con Todos los Chiches</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Bañada en mantequilla, crema agria, queso costeño rallado y su toque de tajín. ¡Una explosión de sabor en cada mordisco!</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🧈 Con Mantequilla</span>
-                        <span class="feature-tag">🧀 Queso Costeño</span>
-                        <span class="feature-tag">🌶️ Toque de Tajín</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- MADURO -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍌</div>
-                <h3 class="ingredient-title">Maduro con Bocadillo y Queso</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Casao perfecto, con queso doble crema derretido y bocadillo veleño. El toque dulce que hace la diferencia en cada bocado.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🍌 Maduro Asado</span>
-                        <span class="feature-tag">🍬 Bocadillo Veleño</span>
-                        <span class="feature-tag">🧀 Queso Doble Crema</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PIÑA ASADA -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍍</div>
-                <h3 class="ingredient-title">Piña Asada</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Con un toque de canela y miel de abeja que la deja brutal... pa' que quieras repetir. Un acompañamiento único que te sorprenderá.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🍯 Con Miel de Abeja</span>
-                        <span class="feature-tag">✨ Toque de Canela</span>
-                        <span class="feature-tag">🔥 Bien Asadita</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PATACÓN -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍌</div>
-                <h3 class="ingredient-title">Patacón</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Bien aplastao' y crocante, como se hace aquí. El acompañamiento tradicional que no puede faltar en un buen plato santandereano.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🔨 Bien Aplastao'</span>
-                        <span class="feature-tag">🔥 Crocante</span>
-                        <span class="feature-tag">🌾 Tradicional</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PAPA AL VAPOR -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🥔</div>
-                <h3 class="ingredient-title">Papa al Vapor</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Suavecita y calentica, la que combina con todo y nunca falla. Papa santandereana cocida al punto perfecto.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🥔 Papa Regional</span>
-                        <span class="feature-tag">💨 Al Vapor</span>
-                        <span class="feature-tag">💛 Suavecita</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- YUCA AL VAPOR -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍠</div>
-                <h3 class="ingredient-title">Yuca al Vapor</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Bien cocida, suave por dentro y con ese gustico. Yuca fresca de nuestras fincas, preparada con cariño.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🍠 Yuca Fresca</span>
-                        <span class="feature-tag">🌾 Cosecha Local</span>
-                        <span class="feature-tag">💪 Pa' Llenar</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PAPAS FRITAS -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍟</div>
-                <h3 class="ingredient-title">Papas Fritas</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Crujientes, doraditas y con su puntico de sal. Un clásico infaltable que todos aman y nunca falla.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🔥 Bien Doraditas</span>
-                        <span class="feature-tag">🧂 Punto de Sal</span>
-                        <span class="feature-tag">✨ Crujientes</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- YUCAS FRITAS -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍟</div>
-                <h3 class="ingredient-title">Yucas Fritas</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Crujientes, doraditas y con su puntico de sal. La versión santandereana de las papas fritas que te va a encantar.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🔥 Bien Fritas</span>
-                        <span class="feature-tag">🧂 Punto de Sal</span>
-                        <span class="feature-tag">💛 Doraditas</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GUACAMOLE -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🥑</div>
-                <h3 class="ingredient-title">Guacamole Casero</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Cremoso y fresquito con su toque de limón que lo pone sabrosón. Pa' untar sin pena y repetir sin culpa.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🥑 Cremoso</span>
-                        <span class="feature-tag">🍋 Con Limón</span>
-                        <span class="feature-tag">🌱 Fresco</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- GUISO -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍲</div>
-                <h3 class="ingredient-title">Guiso Santandereano</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Ese sofrito casero que huele a puro almuerzo de abuela. ¡Una chimba pa' acompañar todo!</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">👵 Receta de Abuela</span>
-                        <span class="feature-tag">🔥 Sofrito Casero</span>
-                        <span class="feature-tag">✨ Sabor Tradicional</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- PICO DE GALLO -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🍅</div>
-                <h3 class="ingredient-title">Pico de Gallo</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Picantico y con sabor que despierta. Le da vida a cada bocado con su frescura y ese toque picosito.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🌶️ Picantico</span>
-                        <span class="feature-tag">🍅 Fresco</span>
-                        <span class="feature-tag">⚡ Sabor Intenso</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TÁRTARA -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🥫</div>
-                <h3 class="ingredient-title">Tártara Santandereana</h3>
-                <div class="ingredient-location">📍 Santander, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Suave y cremosa, con ese toque Santandereano que combina brutal con lo frito. La salsa que no puede faltar.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🥫 Cremosa</span>
-                        <span class="feature-tag">✨ Toque Regional</span>
-                        <span class="feature-tag">💛 Suavecita</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SUERO COSTEÑO -->
-            <div class="ingredient-card-detailed">
-                <div class="ingredient-emoji-large">🥛</div>
-                <h3 class="ingredient-title">Suero Costeño</h3>
-                <div class="ingredient-location">📍 Costa Caribe, Colombia</div>
-                <div class="ingredient-description">
-                    <p>Espesito y con ese gustico que solo el Caribe sabe dar. Traído directo de la costa para darle ese toque cremoso perfecto.</p>
-                    <div class="ingredient-features">
-                        <span class="feature-tag">🥛 Cremoso Natural</span>
-                        <span class="feature-tag">🌊 Sabor Costeño</span>
-                        <span class="feature-tag">🧂 Sal Marina</span>
-                    </div>
-                </div>
-            </div>
+            <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
         </div>
 
-        <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
-    </div>
-
-    <div class="carousel-indicators">
-        <span class="indicator active" onclick="goToSlide(0)"></span>
-        <span class="indicator" onclick="goToSlide(1)"></span>
-        <span class="indicator" onclick="goToSlide(2)"></span>
-        <span class="indicator" onclick="goToSlide(3)"></span>
-        <span class="indicator" onclick="goToSlide(4)"></span>
-        <span class="indicator" onclick="goToSlide(5)"></span>
-        <span class="indicator" onclick="goToSlide(6)"></span>
-        <span class="indicator" onclick="goToSlide(7)"></span>
-        <span class="indicator" onclick="goToSlide(8)"></span>
-        <span class="indicator" onclick="goToSlide(9)"></span>
-        <span class="indicator" onclick="goToSlide(10)"></span>
-        <span class="indicator" onclick="goToSlide(11)"></span>
-        <span class="indicator" onclick="goToSlide(12)"></span>
-        <span class="indicator" onclick="goToSlide(13)"></span>
-    </div>
-</section>
-
-    <section class="gallery ">
-        <h2 class="section-title">¡Quiubo Pues! Mira Es@s Berrac@s </h2>
-        <p class="section-subtitle">Pare bolas: Votá por tu foto favorita. La foto con más interacciones al final del
-            mes se gana un chicharrón carnudo... ¡Ojo pues, mij@! </p>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <div class="gallery-icon"></div>
-                <div class="gallery-info">
-                    <span class="gallery-user">María G.</span>
-                    <div>❤️ 124</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-icon"></div>
-                <div class="gallery-info">
-                    <span class="gallery-user">Carlos M.</span>
-                    <div>❤️ 98</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-icon"></div>
-                <div class="gallery-info">
-                    <span class="gallery-user">Ana L.</span>
-                    <div>❤️ 156</div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <div class="gallery-icon"></div>
-                <div class="gallery-info">
-                    <span class="gallery-user">Pedro R.</span>
-                    <div>❤️ 87</div>
-                </div>
-            </div>
+        <div class="carousel-indicators">
+            <span class="indicator active" onclick="goToSlide(0)"></span>
+            <span class="indicator" onclick="goToSlide(1)"></span>
+            <span class="indicator" onclick="goToSlide(2)"></span>
+            <span class="indicator" onclick="goToSlide(3)"></span>
+            <span class="indicator" onclick="goToSlide(4)"></span>
+            <span class="indicator" onclick="goToSlide(5)"></span>
+            <span class="indicator" onclick="goToSlide(6)"></span>
+            <span class="indicator" onclick="goToSlide(7)"></span>
+            <span class="indicator" onclick="goToSlide(8)"></span>
+            <span class="indicator" onclick="goToSlide(9)"></span>
+            <span class="indicator" onclick="goToSlide(10)"></span>
+            <span class="indicator" onclick="goToSlide(11)"></span>
+            <span class="indicator" onclick="goToSlide(12)"></span>
+            <span class="indicator" onclick="goToSlide(13)"></span>
         </div>
     </section>
 
+   <section class="gallery">
+  <h2 class="section-title">¡Quiubo Pues! Mira Es@s Berrac@s </h2>
+  <p class="section-subtitle">
+    Pare bolas: Votá por tu foto favorita. La foto con más interacciones al final del mes se gana un chicharrón carnudo... ¡Ojo pues, mij@!
+  </p>
+
+  <div class="gallery-grid">
+
+    <div class="gallery-item">
+      <div class="gallery-icon"></div>
+      <div class="gallery-info">
+        <span class="gallery-user">María G.</span>
+        <div class="heart">❤️ <span>124</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-icon"></div>
+      <div class="gallery-info">
+        <span class="gallery-user">Carlos M.</span>
+        <div class="heart">❤️ <span>98</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-icon"></div>
+      <div class="gallery-info">
+        <span class="gallery-user">Ana L.</span>
+        <div class="heart">❤️ <span>156</span></div>
+      </div>
+    </div>
+
+    <div class="gallery-item">
+      <div class="gallery-icon"></div>
+      <div class="gallery-info">
+        <span class="gallery-user">Pedro R.</span>
+        <div class="heart">❤️ <span>87</span></div>
+      </div>
+    </div>
+
+  </div>
+   <div id="vote-message" class="vote-message hidden">
+    Ya votaste por una foto mij@
+  </div>
+</section>
+
     <!-- Botones flotantes de contacto -->
     <div class="contact-buttons">
-    <a href="https://wa.me/573201234567?text=Hola,%20quiero%20información%20sobre%20Puro%20Humo" 
-       target="_blank" 
-       class="contact-btn whatsapp-btn"
-       aria-label="Contactar por WhatsApp">
-        <img src="./img/whatsapp.png" alt="WhatsApp">
-    </a>
-    <a href="https://www.instagram.com/tu_usuario_instagram" 
-       target="_blank" 
-       class="contact-btn instagram-btn"
-       aria-label="Seguir en Instagram">
-        <img src="./img/instagram.png" alt="Instagram">
-    </a>
-</div>
+        <a href="https://wa.me/573201234567?text=Hola,%20quiero%20información%20sobre%20Puro%20Humo" target="_blank"
+            class="contact-btn whatsapp-btn" aria-label="Contactar por WhatsApp">
+            <img src="./img/whatsapp.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.instagram.com/purohumo____" target="_blank" class="contact-btn instagram-btn"
+            aria-label="Seguir en Instagram">
+            <img src="./img/instagram.png" alt="Instagram">
+        </a>
+    </div>
 
     <script src="./script.js"></script>
 </body>
+
 </html>
 
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-section">
-                <img src="./img/logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
-                <h3>Puro Humo</h3>
-                <p>¡La berraquera del chicharrón santandereano!</p>
-            </div>
-            <div class="footer-section">
-                <h3>Horarios</h3>
-                <p>Sábados y Domingos</p>
-                <p>11:30 AM - 4:00 PM</p>
-                <p>Pilas!! Solo fines de semana</p>
-            </div>
-            <div class="footer-section">
-                <h3>Ubicación</h3>
-                <p>Lagos / Floridablanca</p>
-                <p>Camine pa'cá, no se pierda</p>
-                <div class="map-container">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
-                        width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen=""
-                        loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
+<footer class="footer">
+    <div class="footer-container">
+        <div class="footer-section">
+            <img src="./img/logo-puro-humo-b.png" alt="Puro Humo Logo" class="footer-logo">
+            <h3>Puro Humo</h3>
+            <p>¡La berraquera del chicharrón santandereano!</p>
+        </div>
+        <div class="footer-section">
+            <h3>Horarios</h3>
+            <p>Sábados y Domingos</p>
+            <p>11:30 AM - 4:00 PM</p>
+            <p>Pilas!! Solo fines de semana</p>
+        </div>
+        <div class="footer-section">
+            <h3>Ubicación</h3>
+            <p>Lagos / Floridablanca</p>
+            <p>Camine pa'cá, no se pierda</p>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d331.09208465403987!2d-73.10080097767094!3d7.072313078612387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e683f000dd50b6d%3A0x2107bf3546f20f86!2sPURA%20CALLE!5e0!3m2!1ses-419!2sco!4v1759501288181!5m2!1ses-419!2sco"
+                    width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander con toda la berraquera</p>
-        </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+        <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander con toda la berraquera</p>
+    </div>
+</footer>
 
-    <script src="./script.js"></script>
+<script src="./script.js"></script>
 </body>
 
 </html>

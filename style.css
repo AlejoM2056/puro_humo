@@ -602,6 +602,41 @@
      padding: 4rem 2rem;
  }
 
+.heart {
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.3s;
+   color: white;
+}
+.heart.clicked {
+  color: red;
+}
+
+.vote-message {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffebee;
+  color: #e53935;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease, transform 0.3s ease;
+  z-index: 9999;
+}
+
+.vote-message.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.hidden {
+  display: none;
+}
+
  .gallery-grid {
      max-width: 1200px;
      margin: 0 auto;
