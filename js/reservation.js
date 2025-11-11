@@ -52,3 +52,37 @@ document.getElementById('confirmationModal').addEventListener('click', function(
         closeModal();
     }
 });
+
+document.getElementById("reservaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const email = document.getElementById("email").value.trim() || "No proporcionado";
+  const personas = document.getElementById("personas").value;
+  const fecha = document.getElementById("fecha").value;
+  const hora = document.getElementById("hora").value;
+  const comentarios = document.getElementById("comentarios").value.trim() || "Ninguno";
+
+  const mensaje = `🍖 *Nueva Reserva Puro Humo* 🍻
+  
+👤 *Nombre:* ${nombre}
+📞 *Teléfono:* ${telefono}
+📧 *Correo:* ${email}
+👥 *Personas:* ${personas}
+📅 *Fecha:* ${fecha}
+⏰ *Hora:* ${hora}
+💬 *Comentarios:* ${comentarios}`;
+
+  const url = `https://wa.me/573145834810?text=${encodeURIComponent(mensaje)}`;
+
+  // Redirigir a WhatsApp
+  window.open(url, "_blank");
+
+  // Mostrar modal de confirmación
+  document.getElementById("confirmationModal").style.display = "flex";
+});
+
+function closeModal() {
+  document.getElementById("confirmationModal").style.display = "none";
+}

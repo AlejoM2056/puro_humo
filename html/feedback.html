@@ -129,6 +129,82 @@
         </div>
     </footer>
     <script src="../script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("tGy8_l9-IydbVmH6Q"); // ✅ solo la pública
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnReview = document.querySelector(".btn-submit");
+  const btnIdea = document.querySelector(".btn-idea");
+  const commentBox = document.querySelector(".comment-box textarea");
+  const ideaBox = document.querySelector(".ideas-box textarea");
+  const ratings = {};
+
+  window.rateStar = (el, value) => {
+    const container = el.parentNode;
+    const label = container.parentNode.querySelector(".rating-label").textContent.trim();
+    ratings[label] = value;
+
+    container.querySelectorAll(".star").forEach(star => star.style.filter = "grayscale(1)");
+    for (let i = 0; i < value; i++) container.querySelectorAll(".star")[i].style.filter = "none";
+  };
+
+  btnReview.addEventListener("click", () => {
+    const templateParams = {
+      to_email: "purohumo6@gmail.com",
+      ahumado: ratings["🔥 Nivel de Ahumado"] || "Sin calificar",
+      frescura: ratings["🥑 Frescura de Acompañamientos"] || "Sin calificar",
+      presentacion: ratings["📷 Presentación del Plato"] || "Sin calificar",
+      espera: ratings["⏱️ Tiempo de Espera"] || "Sin calificar",
+      atencion: ratings["❤️ Calidad de Atención"] || "Sin calificar",
+      comentario: commentBox.value.trim() || "Sin comentario",
+      idea: "",
+    };
+
+    emailjs.send("service_86ku94c", "template_etsmje4", templateParams)
+      .then(() => {
+        alert("🫶 ¡Gracias por tu reseña! Nos ayuda un montón.");
+        commentBox.value = "";
+        document.querySelectorAll(".star").forEach(star => star.style.filter = "grayscale(1)");
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("❌ No se pudo enviar el review, intenta más tarde.");
+      });
+  });
+
+  btnIdea.addEventListener("click", () => {
+    const idea = ideaBox.value.trim();
+    if (!idea) {
+      alert("✍️ Escribe una idea antes de enviar");
+      return;
+    }
+
+    const templateParams = {
+      to_email: "purohumo6@gmail.com",
+      ahumado: "",
+      frescura: "",
+      presentacion: "",
+      espera: "",
+      atencion: "",
+      comentario: "",
+      idea,
+    };
+
+    emailjs.send("service_86ku94c", "template_etsmje4", templateParams)
+      .then(() => {
+        alert("💡 ¡Gracias por tu idea sabrosonga!");
+        ideaBox.value = "";
+      })
+      .catch(err => {
+        console.error("Error:", err);
+        alert("❌ No se pudo enviar la idea.");
+      });
+  });
+});
+
+</script>
+
 </body>
 
 </html>
