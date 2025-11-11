@@ -371,6 +371,9 @@
      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
      gap: 3rem;
      text-align: center;
+     transform: translateY(-10px);
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+     border-radius: 40px;
  }
 
  .stat-item {

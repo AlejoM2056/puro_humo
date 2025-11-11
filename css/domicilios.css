@@ -12,6 +12,158 @@
     display: none;
 }
 
+/* Estilos mejorados para los items del menú */
+.menu-item-full {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 18px 20px;
+    background: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #e8e8e8;
+    position: relative;
+}
+
+.menu-item-full:hover {
+    border-color: #ff6b35;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.15);
+    transform: translateY(-2px);
+}
+
+.menu-item-full input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.checkbox-custom {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    border: 2.5px solid #d0d0d0;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+    margin-top: 3px;
+    background: white;
+}
+
+.menu-item-full:hover .checkbox-custom {
+    border-color: #ff6b35;
+}
+
+.menu-item-full input:checked ~ .checkbox-custom {
+    background: #ff6b35;
+    border-color: #ff6b35;
+}
+
+.menu-item-full input:checked ~ .checkbox-custom::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1;
+}
+
+.item-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.item-top-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+    gap: 15px;
+}
+
+.item-title {
+    font-weight: 700;
+    font-size: 15px;
+    color: #2c2c2c;
+    letter-spacing: 0.3px;
+    transition: color 0.3s ease;
+}
+
+.item-price {
+    font-weight: 700;
+    font-size: 15px;
+    color: #ff6b35;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+}
+
+.menu-item-full:hover .item-price {
+    transform: scale(1.05);
+}
+
+.item-desc {
+    color: #666;
+    font-size: 13.5px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.menu-item-full input:checked ~ .item-content .item-title {
+    color: #ff6b35;
+}
+
+.menu-item-full input:checked ~ .item-content .item-desc {
+    color: #555;
+}
+
+.option-group {
+    margin-bottom: 30px;
+}
+
+.group-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2c2c2c;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #ff6b35;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-item-full {
+        padding: 15px;
+        gap: 12px;
+    }
+
+    .checkbox-custom {
+        width: 20px;
+        height: 20px;
+        min-width: 20px;
+    }
+
+    .item-title {
+        font-size: 14px;
+    }
+
+    .item-price {
+        font-size: 14px;
+    }
+
+    .item-desc {
+        font-size: 13px;
+    }
+
+    .item-top-row {
+        gap: 10px;
+    }
+}
+
+
 #panelCarrito {
     display: none;
     position: fixed;

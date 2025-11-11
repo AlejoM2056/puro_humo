@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Puro Humo - Domicilios</title>
     <link rel="stylesheet" href="../style.css">
     <link rel="stylesheet" href="../css/domicilios.css">
-      <link rel="icon" type="image/png" href="./img/logo-puro-humo.png">
+    <link rel="icon" type="image/png" href="./img/logo-puro-humo.png">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-container">
@@ -38,13 +40,13 @@
         </div>
     </div>
 
-    <section class="configurator ">
+    <section class="configurator">
         <h2 class="section-title">Pida su Chicharronsito</h2>
         <p class="section-subtitle">Ponga los acompañantes como le provoque, pa' que quede calidad</p>
         <div class="configurator-container">
             <div class="plate-preview">
                 <div class="plate-image-container">
-                    <img src="../img/imag.jpg" alt="Plato de chicharrón" id="plateImage">
+                    <img src="../img/chicharron.jpg" alt="Plato de chicharrón" id="plateImage">
                 </div>
                 <div class="plate-text-container">
                     <div class="plate-title">Su Plato Bien Bravo Armado a su Gusto</div>
@@ -52,69 +54,209 @@
                 </div>
             </div>
             <div class="options-panel">
+
                 <div class="option-group">
-                    <h3>Base Principal</h3>
-                    <label class="option-label">
-                        <input type="checkbox" id="chicharron" checked onchange="updatePlate()">
-                        <span>Chicharrón Ahumado (250g) / La verraquera mij@</span>
-                    </label>
-                </div>
-                <div class="option-group">
-                    <h3>Salsas</h3>
-                    <label class="option-label">
-                        <input type="checkbox" id="aji" checked onchange="updatePlate()">
-                        <span>Ají Casero Santandereano / Picosito ligero </span>
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" id="tartara" checked onchange="updatePlate()">
-                        <span>Salsa Tártara / La propia Bumanguesa </span>
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" id="suero" checked onchange="updatePlate()">
-                        <span>Suero / Al que no le gusta, que no joda</span>
-                    </label>
-                </div>
-                <div class="option-group">
-                    <h3>Acompañamientos</h3>
-                    <label class="option-label">
-                        <input type="checkbox" id="aguacate" checked onchange="updatePlate()">
-                        <span>Aguacate del que es pa hoy </span>
-                    </label>
-                    <label class="option-label">
-                        <input type="checkbox" id="maduro" checked onchange="updatePlate()">
-                        <span>Maduro con queso y bocadillo, el propio casao' </span>
-                    </label>
-                    <div class="arepa-section">
-                        <p class="section-title">Escoja su arepa quesuda:</p>
-                        <label class="option-label">
-                            <input type="radio" name="arepa" id="arepa-amarilla" checked onchange="updatePlate()">
-                            <span>Arepa Amarilla bien doradita</span>
-                        </label>
-                        <label class="option-label">
-                            <input type="radio" name="arepa" id="arepa-blanca" onchange="updatePlate()">
-                            <span>Arepa Blanca bien tostadita</span>
-                        </label>
-                        <label class="option-label">
-                            <input type="radio" name="arepa" id="sin-arepa" onchange="updatePlate()">
-                            <span>Sin arepa</span>
-                        </label>
-                    </div>
-                    <div class="tuberculo-section">
-                        <p class="section-title">Escoja su acompañante mano:</p>
-                        <label class="option-label">
-                            <input type="radio" name="tuberculo" id="yuca" checked onchange="updatePlate()">
-                            <span>Yuca pa' llenar la barriga</span>
-                        </label>
-                        <label class="option-label">
-                            <input type="radio" name="tuberculo" id="papa" onchange="updatePlate()">
-                            <span>Papa delicia pa'</span>
-                        </label>
-                        <label class="option-label">
-                            <input type="radio" name="tuberculo" id="sin-tuberculo" onchange="updatePlate()">
-                            <span>Sin acompañante</span>
-                        </label>
+                    <h3 class="group-title">Base Principal</h3>
+
+                    <div class="menu-item-full fixed-item">
+                        <input type="checkbox" id="chicharron" checked disabled style="display: none;">
+                        <div class="checkbox-custom checked-disabled"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">CHICHARRÓN AL BARRIL</span>
+                                <span class="item-price">$28.000</span>
+                            </div>
+                            <p class="item-desc">Crocante como debe ser, con esa grasita que se deshace y un olorcito
+                                que enamora. Hecho al barril, despacio y con cariño, pa' que quede de locos.</p>
+                        </div>
                     </div>
                 </div>
+
+                <div class="option-group">
+                    <h3 class="group-title">Acompañamientos (Selecciona dos)</h3>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="chorizo" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">CHORIZO</span>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                            <p class="item-desc">Bien asadito, jugoso y con ese sabor casero que te hace soltar un "uff,
+                                qué nota".</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="mazorca" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">MAZORCA</span>
+                                <span class="item-price">$5.000</span>
+                            </div>
+                            <p class="item-desc">Bañada en mantequilla, crema agria, queso costeño rallado y su toque de
+                                tajín.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="maduro" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">MADURO</span>
+                                <span class="item-price">$5.000</span>
+                            </div>
+                            <p class="item-desc">Casao perfecto, con queso doble crema derretido y bocadillo veleño.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="pina" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PIÑA ASADA</span>
+                                <span class="item-price">$3.500</span>
+                            </div>
+                            <p class="item-desc">Con un toque de canela y miel de abeja que la deja brutal… pa' que
+                                quieras repetir.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="patacon" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PATACÓN</span>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                            <p class="item-desc">Bien aplastao' y crocante, como se hace aquí.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="papavapor" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PAPA AL VAPOR</span>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                            <p class="item-desc">Suavecita y calentica, la que combina con todo y nunca falla.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="yucavapor" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">YUCA AL VAPOR</span>
+                                <span class="item-price">$4.000</span>
+                            </div>
+                            <p class="item-desc">Bien cocida, suave por dentro y con ese gustico.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="papasfritas" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PAPAS FRITAS</span>
+                                <span class="item-price">$7.000</span>
+                            </div>
+                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.
+                            </p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="yucasfritas" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">YUCAS FRITAS</span>
+                                <span class="item-price">$7.000</span>
+                            </div>
+                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.
+                            </p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- Salsas -->
+                <div class="option-group">
+                    <h3 class="group-title">Salsas (Selecciona dos)</h3>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="guacamole" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">GUACAMOLE</span>
+                                <span class="item-price">$3.000</span>
+                            </div>
+                            <p class="item-desc">Cremoso y fresquito con su toque de limón que lo pone sabrosón. Pa'
+                                untar sin pena y repetir sin culpa.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="guiso" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">GUISO</span>
+                                <span class="item-price">$3.000</span>
+                            </div>
+                            <p class="item-desc">Ese sofrito casero que huele a puro almuerzo de abuela. ¡Una chimba pa'
+                                acompañar todo!</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="picodegallo" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PICO DE GALLO</span>
+                                <span class="item-price">$3.000</span>
+                            </div>
+                            <p class="item-desc">Picantico y con sabor que despierta. Le da vida a cada bocado.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="tartara" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">TÁRTARA</span>
+                                <span class="item-price">$2.500</span>
+                            </div>
+                            <p class="item-desc">Suave y cremosa, con ese toque Santandereano que combina brutal con lo
+                                frito.</p>
+                        </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="checkbox" id="suero" onchange="updatePlate()">
+                        <div class="checkbox-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">SUERO COSTEÑO</span>
+                                <span class="item-price">$2.500</span>
+                            </div>
+                            <p class="item-desc">Espesito y con ese gustico que solo el Caribe sabe dar.</p>
+                        </div>
+                    </label>
+                </div>
+
                 <div id="contadorPlatos">
                     <p>Ya lleva <span id="numeroPlatos">0</span> plato(s) en su pedido</p>
                     <button onclick="toggleCarrito()">Ver mi pedido completo</button>
@@ -223,11 +365,12 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander con toda la verraquera</p>
+            <p>© 2025 Puro Humo - Todos los derechos reservados | Hecho en Santander con toda la berraquera</p>
         </div>
     </footer>
 
     <script src="../script.js"></script>
     <script src="../js/domicilios.js"></script>
 </body>
+
 </html>
