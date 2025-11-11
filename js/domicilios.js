@@ -550,7 +550,7 @@ function confirmarPedido() {
   pedido += `\n*TOTAL A PAGAR: $${totalPedido.toLocaleString()}*\n\n`;
   pedido += "¡Gracias por su pedido! 🔥";
 
-  const numeroWhatsApp = "573001234567"; 
+  const numeroWhatsApp = "3145834810"; 
   const mensajeWhatsApp = encodeURIComponent(pedido);
   window.open(
     `https://wa.me/${numeroWhatsApp}?text=${mensajeWhatsApp}`,
