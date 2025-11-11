@@ -1,18 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // === 1️⃣ MARCAR ENLACE ACTIVO SEGÚN LA PÁGINA ===
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active'); 
-        
         const href = link.getAttribute('href');
         const cleanHref = href.replace(/^\.\.\//, '').replace(/^\.\//, '');
         
-        if (cleanHref === currentPage || 
+        if (
+            cleanHref === currentPage || 
             (currentPage === '' && cleanHref === 'index.html') ||
-            cleanHref.endsWith(currentPage)) {
+            cleanHref.endsWith(currentPage)
+        ) {
             link.classList.add('active');
         }
+    });
+
+    // === 2️⃣ ANIMACIONES DE SCROLL ===
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+
+    const revealElements = document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right');
+    revealElements.forEach(element => {
+        observer.observe(element);
     });
 });
 

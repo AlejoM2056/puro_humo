@@ -41,8 +41,23 @@
     </div>
 
     <section class="configurator">
-        <h2 class="section-title">Pida su Chicharronsito</h2>
-        <p class="section-subtitle">Ponga los acompañantes como le provoque, pa' que quede calidad</p>
+        <h2 class="section-title">Pida Su Chicharronsito Mano</h2>
+          <div class="section-info">
+    <h3 class="info-title">¿Cómo armár tu plato en <span class="brand-name">Puro Humo</span>?</h3>
+    <p class="info-text">
+      El <strong> plato del chicharrón al barril</strong> incluye:
+    </p>
+    <ul class="combo-list">
+      <li><strong>250 g de chicharrón</strong> bien crocante, jugoso y hecho con toda la berraquera.</li>
+      <li><strong>2 acompañamientos</strong> pa’ que lo disfrutés como se debe.</li>
+      <li><strong>2 salsas de la casa</strong> del puro sabor.</li>
+    </ul>
+    <p class="info-extra">
+      👉 Cuando armés tu pedido, elegí los acompañamientos y salsas que más te antojen.<br>
+      Las <strong>primeras dos elecciones</strong> de cada parte (acompañamientos y salsas) ya vienen incluidas en el precio.<br>
+      Si querés meterle <strong>una tercera opción</strong>, se cobra el <strong>adicional</strong> que aparece en el producto 
+    </p>
+  </div>
         <div class="configurator-container">
             <div class="plate-preview">
                 <div class="plate-image-container">
@@ -274,48 +289,77 @@
     </section>
 
     <div id="modalFormulario">
-        <div class="modal-content">
-            <h2>📍 ¿Pa' Dónde lo Mandamos?</h2>
+    <div class="modal-content">
+        <h2>📍 ¿Pa' Dónde lo Mandamos?</h2>
 
-            <div class="resumen-pedido">
-                <h3>Su Pedido:</h3>
-                <div id="resumenPedido"></div>
+        <div class="resumen-pedido">
+            <h3>Su Pedido:</h3>
+            <div id="resumenPedido"></div>
+        </div>
+        
+        <div class="form-fields">
+            <div class="form-field">
+                <label>Nombre completo:</label>
+                <input type="text" id="nombre" placeholder="¿Cómo se llama parce?" required>
             </div>
-            <div class="form-fields">
-                <div class="form-field">
-                    <label>Nombre completo:</label>
-                    <input type="text" id="nombre" placeholder="¿Cómo se llama parce?" required>
-                </div>
-                <div class="form-field">
-                    <label>Teléfono:</label>
-                    <input type="tel" id="telefono" placeholder="300 123 4567" required>
-                </div>
-                <div class="form-field">
-                    <label>Dirección completa:</label>
-                    <input type="text" id="direccion" placeholder="Calle, carrera, número..." required>
-                </div>
-                <div class="form-field">
-                    <label>Barrio:</label>
-                    <input type="text" id="barrio" placeholder="¿En qué barrio vive?" required>
-                </div>
-                <div class="form-field">
-                    <label>Indicaciones adicionales:</label>
-                    <textarea id="indicaciones"
-                        placeholder="Numero de la Casa o Aparmanto, Portón Negro, Al Lado De Donde Mary.."
-                        rows="3"></textarea>
-                </div>
+            <div class="form-field">
+                <label>Teléfono:</label>
+                <input type="tel" id="telefono" placeholder="300 123 4567" required>
             </div>
-
-            <div class="modal-buttons">
-                <button onclick="guardarPedido()" class="btn-confirmar">
-                    ¡Confirmar Pedido!
-                </button>
-                <button onclick="cerrarFormulario()" class="btn-volver">
-                    Volver
-                </button>
+            <div class="form-field">
+                <label>Dirección completa:</label>
+                <input type="text" id="direccion" placeholder="Calle, carrera, número..." required>
+            </div>
+            <div class="form-field">
+                <label>Barrio:</label>
+                <input type="text" id="barrio" placeholder="¿En qué barrio vive?" required>
+            </div>
+            <div class="form-field">
+                <label>Indicaciones adicionales:</label>
+                <textarea id="indicaciones"
+                    placeholder="Numero de la Casa o Apartamento, Portón Negro, Al Lado De Donde Mary.."
+                    rows="3"></textarea>
+            </div>
+            
+            <!-- MÉTODO DE PAGO -->
+            <div class="form-field">
+                <label style="margin-bottom: 1rem; display: block;">¿Cómo vas a pagar mijit@?</label>
+                <div class="metodo-pago-container">
+                    <label class="metodo-pago-opcion">
+                        <input type="radio" name="metodoPago" id="pagoEfectivo" value="efectivo" checked>
+                        <div class="metodo-pago-card">
+                            <div class="metodo-pago-info">
+                                <strong>Efectivo</strong>
+                                <small>Pague al recibir</small>
+                            </div>
+                            <div class="metodo-pago-check">✓</div>
+                        </div>
+                    </label>
+                    
+                    <label class="metodo-pago-opcion">
+                        <input type="radio" name="metodoPago" id="pagoTransferencia" value="transferencia">
+                        <div class="metodo-pago-card">
+                            <div class="metodo-pago-info">
+                                <strong>Transferencia</strong>
+                                <small>Nequi, Bancolombia, Bre-b</small>
+                            </div>
+                            <div class="metodo-pago-check">✓</div>
+                        </div>
+                    </label>
+                </div>
             </div>
         </div>
+
+        <div class="modal-buttons">
+            <button onclick="guardarPedido()" class="btn-confirmar">
+                ¡Confirmar Pedido!
+            </button>
+            <button onclick="cerrarFormulario()" class="btn-volver">
+                Volver
+            </button>
+        </div>
     </div>
+</div>
 
     <div id="modalConfirmacion">
         <div class="modal-content">
@@ -369,7 +413,6 @@
         </div>
     </footer>
 
-    <script src="../script.js"></script>
     <script src="../js/domicilios.js"></script>
 </body>
 

@@ -158,9 +158,13 @@
      color: #666;
  }
 
- .nav-link.active {
-     color: #ff6b35;
- }
+.nav-link.active {
+  color: #ff6600 !important;
+  font-weight: 700;
+  border-bottom: 2px solid #ff6600;
+  transition: all 0.3s ease;
+}
+
 
  .nav-link.active::after {
      content: '';

@@ -92,6 +92,78 @@
     letter-spacing: 0.3px;
     transition: color 0.3s ease;
 }
+.section-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff7f2;
+  border: 2px solid #ffb685;
+  border-radius: 16px;
+  padding: 1.5rem 2.5rem;
+  max-width: 1000px;
+  margin: 1.5rem auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  color: #333;
+  font-family: 'Poppins', sans-serif;
+}
+
+.info-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #d14d21;
+  margin-bottom: 0.6rem;
+  text-align: center;
+}
+
+.brand-name {
+  color: #ff5722;
+  font-weight: 800;
+}
+
+.info-text {
+  font-size: 1.05rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+
+.combo-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.8rem;
+  list-style: none;
+  padding: 0;
+  margin: 0.5rem 0 1rem;
+}
+
+.combo-list li {
+  flex: 1 1 30%;
+  min-width: 250px;
+  max-width: 300px;
+  font-size: 1rem;
+  background: #fff;
+  border-left: 4px solid #ff7a33;
+  padding: 0.6rem 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.combo-list li:hover {
+  background: #ffe4d1;
+  transform: translateY(-2px);
+}
+
+.info-extra {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  background: #fffaf6;
+  border-radius: 10px;
+  padding: 0.8rem 1.2rem;
+  border-left: 3px solid #ff7a33;
+  max-width: 900px;
+  text-align: center;
+}
 
 .item-price {
     font-weight: 700;
@@ -444,6 +516,183 @@
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+}
+.group-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.contador-seleccion {
+  font-size: 0.9rem;
+  padding: 0.3rem 0.8rem;
+  background: #f8f9fa;
+  border-radius: 20px;
+  font-weight: normal;
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.contador-seleccion span {
+  font-weight: 600;
+}
+
+/* Animación para el contador */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .group-title {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .contador-seleccion {
+    margin-left: 0;
+  }
+}
+.metodo-pago-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.metodo-pago-opcion {
+    flex: 1;
+    min-width: 200px;
+    cursor: pointer;
+}
+
+.metodo-pago-opcion input[type="radio"] {
+    display: none;
+}
+
+.metodo-pago-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border: 2px solid #ddd;
+    border-radius: 12px;
+    background: white;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.metodo-pago-card:hover {
+    border-color: #d4a574;
+    box-shadow: 0 4px 12px rgba(212, 165, 116, 0.2);
+    transform: translateY(-2px);
+}
+
+.metodo-pago-opcion input[type="radio"]:checked + .metodo-pago-card {
+    border-color: #d4a574;
+    background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
+    box-shadow: 0 4px 15px rgba(212, 165, 116, 0.3);
+}
+
+.metodo-pago-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.metodo-pago-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+
+.metodo-pago-info strong {
+    font-size: 1rem;
+    color: #333;
+}
+
+.metodo-pago-info small {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.metodo-pago-check {
+    font-size: 1.5rem;
+    color: #d4a574;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.metodo-pago-opcion input[type="radio"]:checked + .metodo-pago-card .metodo-pago-check {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .metodo-pago-container {
+        flex-direction: column;
+    }
+    
+    .metodo-pago-opcion {
+        min-width: 100%;
+    }
+}
+
+/* Estilos adicionales para el contador de selección */
+.group-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.contador-seleccion {
+    font-size: 0.9rem;
+    padding: 0.3rem 0.8rem;
+    background: #f8f9fa;
+    border-radius: 20px;
+    font-weight: normal;
+    margin-left: auto;
+    white-space: nowrap;
+}
+
+.contador-seleccion span {
+    font-weight: 600;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .group-title {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .contador-seleccion {
+        margin-left: 0;
+    }
 }
 
 @keyframes pulse {
