@@ -42,24 +42,39 @@
         </div>
     </div>
 
-    <section class="configurator">
+   <section class="configurator">
         <h2 class="section-title">Pida Su Chicharronsito Mano</h2>
         <div class="section-info">
             <h3 class="info-title">¿Cómo armár tu plato en <span class="brand-name">Puro Humo</span>?</h3>
             <p class="info-text">
-                El <strong> plato del chicharrón al barril</strong> incluye:
+                Tenemos <strong>dos opciones pa' que disfrutes como quieras</strong>:
             </p>
-            <ul class="combo-list">
-                <li><strong>250 g de chicharrón</strong> bien crocante, jugoso y hecho con toda la berraquera.</li>
-                <li><strong>2 acompañamientos</strong> pa’ que lo disfrutés como se debe.</li>
-                <li><strong>2 salsas de la casa</strong> del puro sabor.</li>
-            </ul>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin: 1.5rem 0;">
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #d4a574;">
+                    <h4 style="color: #d4a574; margin-bottom: 0.5rem;">Plato Individual</h4>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.2rem; line-height: 1.8;">
+                        <li><strong>250 g de chicharrón</strong> bien crocante y jugoso</li>
+                        <li><strong>2 acompañamientos</strong> incluidos</li>
+                        <li><strong>2 salsas</strong> de la casa</li>
+                    </ul>
+                    <p style="color: #d4a574; font-weight: bold; font-size: 1.2rem; margin-top: 0.5rem;">$28k</p>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; border-left: 4px solid #d4a574">
+                    <h4 style="color: #d4a574;; margin-bottom: 0.5rem;">Plato Para Pareja</h4>
+                    <ul style="margin: 0.5rem 0; padding-left: 1.2rem; line-height: 1.8;">
+                        <li><strong>480 g de chicharrón</strong> pa' compartir</li>
+                        <li><strong>4 acompañamientos</strong> incluidos</li>
+                        <li><strong>Todas las salsas</strong> sin límites</li>
+                    </ul>
+                    <p style="color: #c9964a; font-weight: bold; font-size: 1.2rem; margin-top: 0.5rem;">$52k</p>
+                </div>
+            </div>
+            
             <p class="info-extra">
-                👉 Cuando armés tu pedido, elegí los acompañamientos y salsas que más te antojen.<br>
-                Las <strong>primeras dos elecciones</strong> de cada parte (acompañamientos y salsas) ya vienen
-                incluidas en el precio.<br>
-                Si querés meterle <strong>una tercera opción</strong>, se cobra el <strong>adicional</strong> que
-                aparece en el producto
+                👉 Cuando armés tu pedido, <strong>primero elegí el tipo de plato</strong> y luego los acompañamientos y salsas que más te antojen.<br>
+                Si elegís adicionales de más, se cobra el <strong>costo extra</strong> que aparece en cada producto.
             </p>
         </div>
         <div class="configurator-container">
@@ -75,24 +90,35 @@
             <div class="options-panel">
 
                 <div class="option-group">
-                    <h3 class="group-title">Base Principal</h3>
+                    <h3 class="group-title">Tipo de Plato (Selecciona uno)</h3>
 
-                    <div class="menu-item-full fixed-item">
-                        <input type="checkbox" id="chicharron" checked disabled style="display: none;">
-                        <div class="checkbox-custom checked-disabled"></div>
+                    <label class="menu-item-full">
+                        <input type="radio" name="tipoPlato" id="platoIndividual" value="individual" onchange="cambiarTipoPlato()" checked>
+                        <div class="radio-custom"></div>
                         <div class="item-content">
                             <div class="item-top-row">
-                                <span class="item-title">CHICHARRÓN AL BARRIL</span>
-                                <span class="item-price">$28.000</span>
+                                <span class="item-title">PLATO INDIVIDUAL</span>
+                                <span class="item-price">$28k</span>
                             </div>
-                            <p class="item-desc">Crocante como debe ser, con esa grasita que se deshace y un olorcito
-                                que enamora. Hecho al barril, despacio y con cariño, pa' que quede de locos.</p>
+                            <p class="item-desc">250 g de chicharrón crocante como debe ser, con esa grasita que se deshace. Incluye 2 acompañamientos y 2 salsas.</p>
                         </div>
-                    </div>
+                    </label>
+
+                    <label class="menu-item-full">
+                        <input type="radio" name="tipoPlato" id="platoPareja" value="pareja" onchange="cambiarTipoPlato()">
+                        <div class="radio-custom"></div>
+                        <div class="item-content">
+                            <div class="item-top-row">
+                                <span class="item-title">PLATO PARA PAREJA</span>
+                                <span class="item-price">$52k</span>
+                            </div>
+                            <p class="item-desc">480 g de chicharrón pa' compartir con tu parcerit@. Incluye 4 acompañamientos y TODAS las salsas de la casa.</p>
+                        </div>
+                    </label>
                 </div>
 
                 <div class="option-group">
-                    <h3 class="group-title">Acompañamientos (Selecciona dos)</h3>
+                    <h3 class="group-title" id="tituloAcompanamientos">Acompañamientos (Selecciona dos)</h3>
 
                     <label class="menu-item-full">
                         <input type="checkbox" id="chorizo" onchange="updatePlate()">
@@ -100,10 +126,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">CHORIZO</span>
-                                <span class="item-price">$4.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
-                            <p class="item-desc">Bien asadito, jugoso y con ese sabor casero que te hace soltar un "uff,
-                                qué nota".</p>
+                            <p class="item-desc">Bien asadito, jugoso y con ese sabor casero que te hace soltar un "uff, qué nota".</p>
                         </div>
                     </label>
 
@@ -113,10 +138,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">MAZORCA</span>
-                                <span class="item-price">$5.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
-                            <p class="item-desc">Bañada en mantequilla, crema agria, queso costeño rallado y su toque de
-                                tajín.</p>
+                            <p class="item-desc">Bañada en mantequilla, crema agria, queso costeño rallado y su toque de tajín.</p>
                         </div>
                     </label>
 
@@ -126,7 +150,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">MADURO</span>
-                                <span class="item-price">$5.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
                             <p class="item-desc">Casao perfecto, con queso doble crema derretido y bocadillo veleño.</p>
                         </div>
@@ -138,10 +162,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">PIÑA ASADA</span>
-                                <span class="item-price">$3.500</span>
+                                <span class="item-price">$6k</span>
                             </div>
-                            <p class="item-desc">Con un toque de canela y miel de abeja que la deja brutal… pa' que
-                                quieras repetir.</p>
+                            <p class="item-desc">Con un toque de canela y miel de abeja que la deja brutal… pa' que quieras repetir.</p>
                         </div>
                     </label>
 
@@ -151,7 +174,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">PATACÓN</span>
-                                <span class="item-price">$4.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
                             <p class="item-desc">Bien aplastao' y crocante, como se hace aquí.</p>
                         </div>
@@ -163,7 +186,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">PAPA AL VAPOR</span>
-                                <span class="item-price">$4.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
                             <p class="item-desc">Suavecita y calentica, la que combina con todo y nunca falla.</p>
                         </div>
@@ -175,7 +198,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">YUCA AL VAPOR</span>
-                                <span class="item-price">$4.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
                             <p class="item-desc">Bien cocida, suave por dentro y con ese gustico.</p>
                         </div>
@@ -187,10 +210,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">PAPAS FRITAS</span>
-                                <span class="item-price">$7.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
-                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.
-                            </p>
+                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.</p>
                         </div>
                     </label>
 
@@ -200,17 +222,16 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">YUCAS FRITAS</span>
-                                <span class="item-price">$7.000</span>
+                                <span class="item-price">$6k</span>
                             </div>
-                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.
-                            </p>
+                            <p class="item-desc">Crujientes, doraditas y con su puntico de sal. Un clásico infaltable.</p>
                         </div>
                     </label>
                 </div>
 
                 <!-- Salsas -->
                 <div class="option-group">
-                    <h3 class="group-title">Salsas (Selecciona dos)</h3>
+                    <h3 class="group-title" id="tituloSalsas">Salsas (Selecciona dos)</h3>
 
                     <label class="menu-item-full">
                         <input type="checkbox" id="guacamole" onchange="updatePlate()">
@@ -218,10 +239,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">GUACAMOLE</span>
-                                <span class="item-price">$3.000</span>
+                                <span class="item-price">$3k</span>
                             </div>
-                            <p class="item-desc">Cremoso y fresquito con su toque de limón que lo pone sabrosón. Pa'
-                                untar sin pena y repetir sin culpa.</p>
+                            <p class="item-desc">Cremoso y fresquito con su toque de limón que lo pone sabrosón. Pa' untar sin pena y repetir sin culpa.</p>
                         </div>
                     </label>
 
@@ -231,10 +251,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">GUISO</span>
-                                <span class="item-price">$3.000</span>
+                                <span class="item-price">$3k</span>
                             </div>
-                            <p class="item-desc">Ese sofrito casero que huele a puro almuerzo de abuela. ¡Una chimba pa'
-                                acompañar todo!</p>
+                            <p class="item-desc">Ese sofrito casero que huele a puro almuerzo de abuela. ¡Una chimba pa' acompañar todo!</p>
                         </div>
                     </label>
 
@@ -244,7 +263,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">PICO DE GALLO</span>
-                                <span class="item-price">$3.000</span>
+                                <span class="item-price">$3k</span>
                             </div>
                             <p class="item-desc">Picantico y con sabor que despierta. Le da vida a cada bocado.</p>
                         </div>
@@ -256,10 +275,9 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">TÁRTARA</span>
-                                <span class="item-price">$2.500</span>
+                                <span class="item-price">$3k</span>
                             </div>
-                            <p class="item-desc">Suave y cremosa, con ese toque Santandereano que combina brutal con lo
-                                frito.</p>
+                            <p class="item-desc">Suave y cremosa, con ese toque Santandereano que combina brutal con lo frito.</p>
                         </div>
                     </label>
 
@@ -269,7 +287,7 @@
                         <div class="item-content">
                             <div class="item-top-row">
                                 <span class="item-title">SUERO COSTEÑO</span>
-                                <span class="item-price">$2.500</span>
+                                <span class="item-price">$3k</span>
                             </div>
                             <p class="item-desc">Espesito y con ese gustico que solo el Caribe sabe dar.</p>
                         </div>

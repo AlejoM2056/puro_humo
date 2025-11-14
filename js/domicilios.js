@@ -1,23 +1,53 @@
 let carrito = [];
+let tipoPlato = 'individual'; // 'individual' o 'pareja'
 
 // Precios de los productos
 const precios = {
-  chicharron: 28000,
-  chorizo: 4000,
-  mazorca: 5000,
-  maduro: 5000,
-  pina: 3500,
-  patacon: 4000,
-  papavapor: 4000,
-  yucavapor: 4000,
-  papasfritas: 7000,
-  yucasfritas: 7000,
+  individual: 28000,
+  pareja: 52000,
+  chorizo: 6000,
+  mazorca: 6000,
+  maduro: 6000,
+  pina: 6000,
+  patacon: 6000,
+  papavapor: 6000,
+  yucavapor: 6000,
+  papasfritas: 6000,
+  yucasfritas: 6000,
   guacamole: 3000,
   guiso: 3000,
   picodegallo: 3000,
-  tartara: 2500,
-  suero: 2500
+  tartara: 3000,
+  suero: 3000
 };
+
+function cambiarTipoPlato() {
+  const individual = document.getElementById('platoIndividual').checked;
+  tipoPlato = individual ? 'individual' : 'pareja';
+  
+  // Actualizar títulos
+  const tituloAcomp = document.getElementById('tituloAcompanamientos');
+  const tituloSalsas = document.getElementById('tituloSalsas');
+  
+  if (tipoPlato === 'individual') {
+    tituloAcomp.innerHTML = 'Acompañamientos (Selecciona dos)';
+    tituloSalsas.innerHTML = 'Salsas (Selecciona dos)';
+  } else {
+    tituloAcomp.innerHTML = 'Acompañamientos (Selecciona cuatro)';
+    tituloSalsas.innerHTML = 'Salsas (¡Todas incluidas!)';
+  }
+  
+  // Limpiar selecciones
+  const acompanamientos = ['chorizo', 'mazorca', 'maduro', 'pina', 'patacon', 'papavapor', 'yucavapor', 'papasfritas', 'yucasfritas'];
+  const salsas = ['guacamole', 'guiso', 'picodegallo', 'tartara', 'suero'];
+  
+  acompanamientos.forEach(id => document.getElementById(id).checked = false);
+  salsas.forEach(id => document.getElementById(id).checked = false);
+  
+  actualizarContador('acomp', 0);
+  actualizarContador('salsas', 0);
+  actualizarPrecioTotal();
+}
 
 function updatePlate() {
   const acompanamientos = ['chorizo', 'mazorca', 'maduro', 'pina', 'patacon', 'papavapor', 'yucavapor', 'papasfritas', 'yucasfritas'];
@@ -26,6 +56,9 @@ function updatePlate() {
   const acompSelected = acompanamientos.filter(id => document.getElementById(id).checked);
   const salsasSelected = salsas.filter(id => document.getElementById(id).checked);
   
+  const limiteAcomp = tipoPlato === 'individual' ? 2 : 4;
+  const limiteSalsas = tipoPlato === 'individual' ? 2 : 999; // Pareja tiene todas incluidas
+  
   // Actualizar contador de acompañamientos
   actualizarContador('acomp', acompSelected.length);
   
@@ -33,7 +66,7 @@ function updatePlate() {
   actualizarContador('salsas', salsasSelected.length);
   
   // Control de acompañamientos
-  if (acompSelected.length > 2) {
+  if (acompSelected.length > limiteAcomp) {
     const ultimoAcomp = acompSelected[acompSelected.length - 1];
     const precio = precios[ultimoAcomp];
     const nombre = document.querySelector(`label[for="${ultimoAcomp}"] .item-title`).textContent;
@@ -48,8 +81,8 @@ function updatePlate() {
     });
   }
   
-  // Control de salsas
-  if (salsasSelected.length > 2) {
+  // Control de salsas (solo para plato individual)
+  if (tipoPlato === 'individual' && salsasSelected.length > limiteSalsas) {
     const ultimaSalsa = salsasSelected[salsasSelected.length - 1];
     const precio = precios[ultimaSalsa];
     const nombre = document.querySelector(`label[for="${ultimaSalsa}"] .item-title`).textContent;
@@ -86,19 +119,31 @@ function actualizarContador(tipo, cantidad) {
     titulo.appendChild(contador);
   }
   
-  const incluidos = Math.min(cantidad, 2);
-  const adicionales = Math.max(cantidad - 2, 0);
+  const limiteIncluidos = (tipo === 'acomp') ? 
+    (tipoPlato === 'individual' ? 2 : 4) : 
+    (tipoPlato === 'individual' ? 2 : 999);
+  
+  // Para el plato de pareja, todas las salsas están incluidas
+  if (tipo === 'salsas' && tipoPlato === 'pareja') {
+    contador.innerHTML = '<span style="color: #4CAF50;">✓ Todas incluidas</span>';
+    return;
+  }
+  
+  const incluidos = Math.min(cantidad, limiteIncluidos);
+  const adicionales = Math.max(cantidad - limiteIncluidos, 0);
   
   if (cantidad === 0) {
     contador.innerHTML = '<span style="color: #999;">Ninguno seleccionado</span>';
-  } else if (cantidad <= 2) {
-    contador.innerHTML = `<span style="color: #4CAF50;">✓ ${cantidad}/2 incluidos</span>`;
+  } else if (cantidad <= limiteIncluidos) {
+    contador.innerHTML = `<span style="color: #4CAF50;">✓ ${cantidad}/${limiteIncluidos} incluidos</span>`;
   } else {
-    contador.innerHTML = `<span style="color: #4CAF50;">✓ 2/2 incluidos</span> <span style="color: #ff9800;">+ ${adicionales} adicional(es)</span>`;
+    contador.innerHTML = `<span style="color: #4CAF50;">✓ ${limiteIncluidos}/${limiteIncluidos} incluidos</span> <span style="color: #ff9800;">+ ${adicionales} adicional(es)</span>`;
   }
 }
 
 function mostrarModalAdicional(tipo, nombre, precio, onAceptar, onCancelar) {
+  const limiteTexto = tipoPlato === 'individual' ? '2' : (tipo === 'acompañamiento' ? '4' : '∞');
+  
   // Crear overlay
   const overlay = document.createElement('div');
   overlay.id = 'modalAdicionalOverlay';
@@ -134,8 +179,8 @@ function mostrarModalAdicional(tipo, nombre, precio, onAceptar, onCancelar) {
     <h2 style="color: #333; margin-bottom: 1rem; font-size: 1.5rem;">¡Producto Adicional!</h2>
     <div style="background: #fff3cd; border-left: 4px solid #ffc107; padding: 1rem; margin: 1.5rem 0; border-radius: 8px; text-align: left;">
       <p style="margin: 0; color: #856404; line-height: 1.6;">
-        <strong>Ya tiene 2 ${tipo}s incluidos</strong> en su chicharrón. 
-        Los primeros 2 son <strong>GRATIS</strong>, pero cada adicional tiene un costo extra.
+        <strong>Ya tiene ${limiteTexto} ${tipo}s incluidos</strong> en su chicharrón. 
+        Los primeros ${limiteTexto} son <strong>GRATIS</strong>, pero cada adicional tiene un costo extra.
       </p>
     </div>
     <div style="background: #f8f9fa; padding: 1.5rem; border-radius: 12px; margin: 1.5rem 0;">
@@ -235,19 +280,22 @@ function actualizarPrecioTotal() {
   const acompSelected = acompanamientos.filter(id => document.getElementById(id).checked);
   const salsasSelected = salsas.filter(id => document.getElementById(id).checked);
   
-  let total = precios.chicharron;
-  let desglose = [];
+  const precioBase = tipoPlato === 'individual' ? precios.individual : precios.pareja;
+  const limiteAcomp = tipoPlato === 'individual' ? 2 : 4;
+  const limiteSalsas = tipoPlato === 'individual' ? 2 : 999;
   
-  // Los primeros 2 acompañamientos son gratis, los demás se cobran
-  if (acompSelected.length > 2) {
-    for (let i = 2; i < acompSelected.length; i++) {
+  let total = precioBase;
+  
+  // Acompañamientos adicionales
+  if (acompSelected.length > limiteAcomp) {
+    for (let i = limiteAcomp; i < acompSelected.length; i++) {
       total += precios[acompSelected[i]];
     }
   }
   
-  // Las primeras 2 salsas son gratis, las demás se cobran
-  if (salsasSelected.length > 2) {
-    for (let i = 2; i < salsasSelected.length; i++) {
+  // Salsas adicionales (solo para plato individual)
+  if (tipoPlato === 'individual' && salsasSelected.length > limiteSalsas) {
+    for (let i = limiteSalsas; i < salsasSelected.length; i++) {
       total += precios[salsasSelected[i]];
     }
   }
@@ -257,13 +305,12 @@ function actualizarPrecioTotal() {
   if (plateText) {
     let mensaje = `<strong style="color: #d4a574; font-size: 1.3em;">$${total.toLocaleString()}</strong>`;
     
-    if (acompSelected.length > 2 || salsasSelected.length > 2) {
-      const adicionales = (acompSelected.length > 2 ? acompSelected.length - 2 : 0) + 
-                         (salsasSelected.length > 2 ? salsasSelected.length - 2 : 0);
+    const adicionales = (acompSelected.length > limiteAcomp ? acompSelected.length - limiteAcomp : 0) + 
+                       (tipoPlato === 'individual' && salsasSelected.length > limiteSalsas ? salsasSelected.length - limiteSalsas : 0);
+    
+    if (adicionales > 0) {
       mensaje += `<br><small style="color: #ff9800; font-size: 0.85em;">Incluye ${adicionales} adicional(es)</small>`;
     }
-    
-  
   }
 }
 
@@ -274,15 +321,19 @@ function agregarAlCarrito() {
   const acompSelected = acompanamientos.filter(id => document.getElementById(id).checked);
   const salsasSelected = salsas.filter(id => document.getElementById(id).checked);
   
-  if (acompSelected.length === 0 || salsasSelected.length === 0) {
-    alert('¡Ey parcerit@! Debe seleccionar al menos un acompañamiento y una salsa');
+  const minAcomp = tipoPlato === 'individual' ? 1 : 1;
+  const minSalsas = tipoPlato === 'individual' ? 1 : 0; // Pareja puede no elegir salsas porque todas están incluidas
+  
+  if (acompSelected.length === 0 || (tipoPlato === 'individual' && salsasSelected.length === 0)) {
+    alert('¡Ey parcerit@! Debe seleccionar al menos un acompañamiento' + 
+          (tipoPlato === 'individual' ? ' y una salsa' : ''));
     return;
   }
   
   const plato = {
-    chicharron: true,
+    tipo: tipoPlato,
     acompanamientos: acompSelected,
-    salsas: salsasSelected,
+    salsas: tipoPlato === 'pareja' ? ['todas'] : salsasSelected,
     precio: calcularPrecioPlato(acompSelected, salsasSelected)
   };
 
@@ -311,18 +362,22 @@ function agregarAlCarrito() {
 }
 
 function calcularPrecioPlato(acompanamientos, salsas) {
-  let total = precios.chicharron;
+  const precioBase = tipoPlato === 'individual' ? precios.individual : precios.pareja;
+  const limiteAcomp = tipoPlato === 'individual' ? 2 : 4;
+  const limiteSalsas = tipoPlato === 'individual' ? 2 : 999;
   
-  // Los primeros 2 acompañamientos son gratis
-  if (acompanamientos.length > 2) {
-    for (let i = 2; i < acompanamientos.length; i++) {
+  let total = precioBase;
+  
+  // Acompañamientos adicionales
+  if (acompanamientos.length > limiteAcomp) {
+    for (let i = limiteAcomp; i < acompanamientos.length; i++) {
       total += precios[acompanamientos[i]];
     }
   }
   
-  // Las primeras 2 salsas son gratis
-  if (salsas.length > 2) {
-    for (let i = 2; i < salsas.length; i++) {
+  // Salsas adicionales (solo para individual)
+  if (tipoPlato === 'individual' && salsas.length > limiteSalsas) {
+    for (let i = limiteSalsas; i < salsas.length; i++) {
       total += precios[salsas[i]];
     }
   }
@@ -338,12 +393,13 @@ function actualizarCarrito() {
 
   carrito.forEach((plato, index) => {
     totalPedido += plato.precio;
+    const tipoTexto = plato.tipo === 'individual' ? 'Individual' : 'Para Pareja';
     const div = document.createElement("div");
     div.style.cssText =
       "background: #f8f8f8; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;";
     div.innerHTML = `
       <div style="display: flex; justify-content: space-between; align-items: center;">
-        <strong>Chicharrón ${index + 1} - $${plato.precio.toLocaleString()}</strong>
+        <strong>${tipoTexto} ${index + 1} - $${plato.precio.toLocaleString()}</strong>
         <button onclick="eliminarDelCarrito(${index})" style="background: #ff0000; color: white; border: none; padding: 0.3rem 0.6rem; border-radius: 5px; cursor: pointer;">X</button>
       </div>
       <small>${obtenerDescripcionPlato(plato)}</small>
@@ -391,13 +447,16 @@ function obtenerDescripcionPlato(plato) {
     suero: 'Suero Costeño'
   };
   
+  const limiteAcomp = plato.tipo === 'individual' ? 2 : 4;
+  const limiteSalsas = plato.tipo === 'individual' ? 2 : 999;
+  
   let desc = [];
   
   // Acompañamientos
   if (plato.acompanamientos && plato.acompanamientos.length > 0) {
     const acompTexto = plato.acompanamientos.map((a, i) => {
       const nombre = nombreAcomp[a];
-      if (i >= 2) {
+      if (i >= limiteAcomp) {
         return `${nombre} (+$${precios[a].toLocaleString()})`;
       }
       return nombre;
@@ -407,14 +466,18 @@ function obtenerDescripcionPlato(plato) {
   
   // Salsas
   if (plato.salsas && plato.salsas.length > 0) {
-    const salsasTexto = plato.salsas.map((s, i) => {
-      const nombre = nombreSalsas[s];
-      if (i >= 2) {
-        return `${nombre} (+$${precios[s].toLocaleString()})`;
-      }
-      return nombre;
-    }).join(', ');
-    desc.push(salsasTexto);
+    if (plato.salsas[0] === 'todas') {
+      desc.push('Todas las salsas incluidas');
+    } else {
+      const salsasTexto = plato.salsas.map((s, i) => {
+        const nombre = nombreSalsas[s];
+        if (i >= limiteSalsas) {
+          return `${nombre} (+$${precios[s].toLocaleString()})`;
+        }
+        return nombre;
+      }).join(', ');
+      desc.push(salsasTexto);
+    }
   }
   
   return desc.join('<br>');
@@ -450,9 +513,10 @@ function actualizarResumenPedido() {
   resumen.innerHTML = carrito
     .map((plato, i) => {
       totalPedido += plato.precio;
+      const tipoTexto = plato.tipo === 'individual' ? 'Individual' : 'Para Pareja';
       return `<div style="display: flex; justify-content: space-between; align-items: center; margin: 0.5rem 0; padding: 0.8rem; background: white; border-radius: 8px; border-left: 4px solid #d4a574;">
           <div style="flex: 1;">
-            <p style="margin: 0 0 0.3rem 0;"><strong>Chicharrón ${i + 1}</strong> <span style="color: #d4a574; font-weight: bold;">$${plato.precio.toLocaleString()}</span></p>
+            <p style="margin: 0 0 0.3rem 0;"><strong>${tipoTexto} ${i + 1}</strong> <span style="color: #d4a574; font-weight: bold;">$${plato.precio.toLocaleString()}</span></p>
             <small style="color: #666; line-height: 1.4;">${obtenerDescripcionPlato(plato)}</small>
           </div>
           <button onclick="eliminarDelResumen(${i})" style="background: #ff0000; color: white; border: none; padding: 0.4rem 0.7rem; border-radius: 5px; cursor: pointer; font-size: 0.9rem; margin-left: 1rem;">X</button>
